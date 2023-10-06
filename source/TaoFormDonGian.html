@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 700px;
+        border: 30px solid #5885d0;
+        
+        
+    }
+    .nhap1 {
+        width: 100%;
+        max-width: 60%;
+        border-top: 3px solid #525252;
+        border-left: 3px solid #525252;
+        
+    }
+    .nhap2 {
+        width: 100%;
+        max-width: 45%;
+        margin-top: 3px;
+        border-top: 3px solid #525252;
+        border-left: 3px solid #525252;
+    }
+    .nhap3{
+       width: 100px;
+       background-color: #b8b6b0
+    }
+    .nhap4{
+        width: 70px;
+        margin-left: 5px;
+        background-color: #b8b6b0
+    }
+    .submit{
+        width: 30%;
+        display: flex;
+        position: absolute;
+        bottom: 50%;
+        left: 20%;
+    }
+    .container {
+        width: 100%;
+        height: 500px;
+        
+        position: relative;
+    }
+    .name {
+        width: 20%;
+        height: 600px;
+        text-align: right;
+        font-size: 20px;
+        color: #5885d0;
+
+    }
+
+    .select {
+        width: 78%;
+        height: 500px;
+       
+       
+        position: absolute;
+        right: 0;
+        top: 0;
+        
+    }
+    td {
+        color: #ffa075;
+    }
+</style>
+<body>
+  
+    <h1 align="center" style="background-color: #ff4c00;">SỞ THÍCH CỦA BẠN</h1>
+        
+            <form class="container">
+                <div class="name">
+                    <p>Họ và tên</p>
+                    <p>Email</p>
+                    <p>Sở thích</p>
+                </div>
+
+                <div class="select">
+                    <input class="nhap1" type="text" >
+            
+                    <br><br>
+                    <input type="text" class="nhap2">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><p><input type="checkbox">Thể Thao</p></td>
+                                <td><p><input type="checkbox">Âm nhạc</p></td>
+                                <td><p><input type="checkbox">Đọc sách</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><input type="checkbox">Lướt web</p></td>
+                                <td><p><input type="checkbox">Chơi game</p></td>
+                                <td><p><input type="checkbox">Điện ảnh</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><input type="checkbox">Du lịch</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="submit">
+                    <input type="submit" class="nhap3" value="Gửi thông tin">
+                    <input type="reset" class="nhap4" value="Nhập Lại">
+                </div>
+                
+            </form>
+     
+</body>
+</html>
