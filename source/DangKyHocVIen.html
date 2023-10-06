@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        width: 100%;
+    }
+    .topne {
+        vertical-align: top;
+    }
+    .adress {
+       
+       padding: 20px;
+    }
+    td {
+        padding: 5px;
+    }
+</style>
+<body>
+    <table border="1">
+        <tbody>
+            <tr style="background-color: #d4fdd6;color:#1d4afb">
+                <td colspan="2"><H1>ĐĂNG KÝ HỌC VIÊN</H1></td>  
+            </tr>
+            <tr>
+                <td>Họ và tên</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td>
+                    <input type="radio" name="gender">Nam<input type="radio" name="gender">Nữ
+                </td>
+            </tr>
+            <tr class="adress">
+                <td class="topne">Địa chỉ</td>
+                <td ><input type="text" class="adress"></td>
+            </tr>
+            <tr>
+                <td>Lớp</td>
+                <td>
+                    <select name="Lớp" >
+                        <option value="select">-- Chọn lớp --</option>
+                        <option value="1">Lớp 1</option>
+                        <option value="2">Lớp 2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Điện thoại</td>
+                <td><input type="text"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>
