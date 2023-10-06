@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+.black {
+    background-color: black;
+}
+.white {
+    background-color: white;
+}
+
+    table {
+        border-collapse:collapse ;
+        width: 100%;
+        height: 750px;
+    }
+    
+    th {
+        background-color: #ffb300;
+    }
+
+    
+
+
+</style>
+<body>
+    <table border="1">
+        <tr >
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+        </tr>
+        <tr>
+            <th>A</th>
+            <td ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>B</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>C</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>D</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>E</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>F</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>G</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>H</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>  
+    <script>
+        var chess = document.querySelectorAll('tr td');
+       
+        var cnt = 0;
+        var check = 0;
+        while(true)
+        {
+            if(check == 0)
+            {
+                for(var i = 1; i < 9;i++)
+               {
+                    if(i % 2 != 0)
+                    {chess[cnt].classList.add('white')
+                    cnt++;}
+                    else {
+                        chess[cnt].classList.add('black')
+                        cnt++;
+                    }
+
+                }
+                check = 1;
+            }
+            else {
+                for(var i = 1; i < 9; i++)
+                {
+                    if(i % 2 != 0)
+                    {
+                        chess[cnt].classList.add('black')
+                        cnt++;
+                    }
+                    else{
+                        chess[cnt].classList.add('white')
+                        cnt++;
+                    }
+                    check = 0;
+                }
+            }
+            if(cnt == 64) break;
+        }
+
+    </script>
+</body>
+</html>
