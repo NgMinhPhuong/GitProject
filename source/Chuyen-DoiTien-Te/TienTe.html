@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <table>
+            <tr>
+                <th>Amount</th>
+                <th>From Currency</th>
+                <th>To Currency</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><input class="da-ta" type="text"></td>
+                <td>
+                    <select id="selectfrom" name="Tiente">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="selectto" name="Tiente">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </td>
+                <td><input type="button" value="Convert" onclick="convert()"></td>
+            </tr>
+        </table>
+    </form>
+    <div class="res"></div>
+    <script src="Tiente.js">
+
+    </script>
+</body>
+</html>
