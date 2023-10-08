@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tính chỉ số cân nặng</h1>
+    <p>Nhập cân nặng: (kg) <input id="width" type="text">
+    <br><br>
+    Nhập chiều cao: (m) <input type="text" id="height">
+    </p>
+    <button onclick="run()">Kiểm tra</button>
+    <div class="res"></div>
+    
+    <script>
+        
+        function run(){
+            let width = parseInt(document.getElementById('width').value);
+            let height = parseFloat(document.getElementById('height').value);
+            let bmi = width / (Math.pow(height,2));
+            console.log(width,height,bmi)
+            if(bmi < 18.5)
+            {
+                document.querySelector('.res').innerHTML = `<p>Chỉ số BMI là ${bmi}. Bạn Gầy quá. <h4>Ăn thật nhiều vào <img src="https://i.pinimg.com/originals/3b/97/63/3b97635b6bd4a5bfc436fbd3908f05e0.gif" style="width:100px;" alt=""></h4></p> `
+            } 
+            else if(bmi >= 18.5 && bmi < 25)
+            {
+               
+                document.querySelector('.res').innerHTML = `<p>Chỉ số BMI là ${bmi} <h4>Bạn bình thường </h4></p> ` 
+            }
+            else if(bmi >= 25 && bmi < 30)
+            {
+                document.querySelector('.res').innerHTML = `<p>Chỉ số BMI là ${bmi} <h4>Bạn thừa cân </h4></p> `
+            }
+            else{
+                document.querySelector('.res').innerHTML = `<p>Chỉ số BMI là ${bmi} <h4>Bạn béo phì.<br> Hết cứu rồi <img src="https://i.pinimg.com/originals/3b/97/63/3b97635b6bd4a5bfc436fbd3908f05e0.gif" style="width:100px;" alt=""> </h4></p> `
+            }
+        }
+    </script>
+</body>
+</html>
