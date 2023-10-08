@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img style="width: 100px; position: relative;left: 0px;top: 0px;" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="">
+
+<script>
+    let Nobita = document.querySelector('img');
+    document.querySelector('body').onkeydown = function(e){
+        let m = e.which;
+        switch(m){
+            case 37:
+                Nobita.style.left = parseInt(Nobita.style.left) - 5 + 'px';
+               
+                break;
+            case 38:
+                Nobita.style.top = parseInt(Nobita.style.top) - 5 + 'px';
+                
+                break;
+            case 39:
+                Nobita.style.left = parseInt(Nobita.style.left) + 5 + 'px';
+        
+                break;
+            case 40:
+                Nobita.style.top = parseInt(Nobita.style.top) + 5 + 'px';
+    
+            break;
+        }
+
+    }
+
+</script>
+</body>
+</html>
