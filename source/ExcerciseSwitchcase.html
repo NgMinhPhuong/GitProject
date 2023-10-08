@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        border-radius: 5px;
+        border-color: #dbdbdb;
+    }
+</style>
+<body>
+    <p><input type="text" id="inp"> <button onclick="Run()" style="background-color: #fff;">Tính số ngày</button></p>
+    <div class="res"></div>
+    <script>
+        var Month = [31,28,31,30,31,30,31,31,30,31,30,31]
+        function Run(){
+            let val = parseInt(document.getElementById('inp').value)
+            if(val == 2) document.querySelector('.res').innerHTML = `Tháng ${val} có ${Month[val-1]} hoặc 29 ngày`
+            else document.querySelector('.res').innerHTML = `Tháng ${val} có ${Month[val-1]} ngày`
+        }
+        
+    </script>
+</body>
+</html>
