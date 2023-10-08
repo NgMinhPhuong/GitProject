@@ -7,4 +7,5 @@ function convert(){
     else if(fro == 'VND' && to == 'USD') res.innerHTML = `<p>Result: ${inp * 0.000043878894251864855} USD</p>`
     else if(fro == 'USD' && to == 'USD') res.innerHTML = `<p>Result: ${inp} USD</p>`
     else res.innerHTML = `<p>Result: ${inp / 0.000043878894251864855} VND</p>`
+   
 }   
