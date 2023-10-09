@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    img {
+        width: 70%;
+        height: 150px;
+    }
+    img + img {
+        margin-top: 15px;
+    }
+</style>
+<body>
+    <div class="box">
+        <img style="box-shadow: 3px 3px 5px 0 black;" class="img1" src="http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg" alt="">
+        <img style="box-shadow: 3px 3px 5px 0 black;" class="img2" src="http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg" alt="">
+        <img style="box-shadow: 3px 3px 5px 0 black;" class="img3" src="http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part3x1.jpg" alt="">
+        <img style="box-shadow: 3px 3px 5px 0 black;" class="img4" src="http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg" alt="">
+        <img style="box-shadow: 3px 3px 5px 0 black;" class="img5" src="http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg" alt="">
+       
+    </div>
+    <script>
+        
+        var bear = ['http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg',
+                    'http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg',
+                    'http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part3x1.jpg',
+                    'http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg',
+                    'http://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg'];
+        
+        var cat = ['http://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part1x1.jpg',
+                   'http://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part2x1.jpg',
+                   'http://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg',
+                   'http://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part4x1.jpg',
+                   'http://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part5x1.jpg']
+        
+        var monkey = ['http://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg',
+                      'http://demo.codegym.vn/8/puzzlegame/img/monkey_part2x1.jpg',
+                      'http://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg',
+                      'http://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg',
+                      'http://demo.codegym.vn/8/puzzlegame/img/monkey_part5x1.jpg']
+        
+        function check(animals){
+            for(let i = 0; i < 5 ; ++i)
+            {
+                if(image[i].src != animals[i]) return false;
+                 
+            }
+            return true;
+        }       
+        let image = document.querySelectorAll('img')
+        
+        for(let i = 0; i < 5; i++)
+        {
+            
+            image[i].onclick = function(e){
+                if(image[i].src == bear[i])
+                {
+                    image[i].src = cat[i];
+                }
+                else if(image[i].src == cat[i])
+                {
+                    image[i].src = monkey[i];
+                }
+                else {
+                    image[i].src = bear[i];
+                }
+                
+               if(check(bear) || check(monkey) || check(cat))
+               {
+                    console.log('true')
+                    for(let j = 0; j < 5; j++)
+                    {
+                       
+                        image[j].style.boxShadow = `3px 3px 5px 0 red`
+                        console.log(image[j].style.boxShadow)
+                    }
+                }
+                else{
+                    console.log('false  ')
+                    for(let k = 0; k < 5; k++)
+                    { 
+                        
+                        image[k].style.boxShadow = `3px 3px 5px 0 black`
+                        console.log(image[k].style.boxShadow)
+                    }
+                }
+               
+            }
+        }
+       
+       
+        
+    </script>
+</body>
+</html>

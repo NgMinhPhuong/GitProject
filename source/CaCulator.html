@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border:none;
+        width: 30%;
+        height: 200px;
+    }
+    tr {
+        color:#0000ff ;
+    }
+    button {
+        border-radius: 2px;
+    }
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <td class="display" colspan="4">1</td>
+            
+        </tr>
+        <tr align="center">
+            <td><button val="1">1</button></td>
+            <td><button val="2">2</button></td>
+            <td><button val="3">3</button></td>
+            <td><button val="+">+</button></td>
+        </tr>
+        <tr align="center">
+            <td><button val="4">4</button></td>
+            <td><button val="5">5</button></td>
+            <td><button val="6">6</button></td>
+            <td><button val="-">-</button></td>
+        </tr>
+        <tr align="center">
+            <td><button val="7">7</button></td>
+            <td><button val="8">8</button></td>
+            <td><button val="9">9</button></td>
+            <td><button val="*">*</button></td>
+        </tr>
+        <tr align="center">
+            <td><button val="AC">AC</button></td>
+            <td><button val="0">0</button></td>
+            <td><button val="=">=</button></td>
+            <td><button val="/">/</button></td>
+        </tr>
+    </table>
+    
+    <script>
+        var display = document.querySelector('.display')
+        var a = document.querySelectorAll('button')
+        for(var i = 0; i < a.length; i++)
+        {
+            if(i == a.length - 2) continue;
+            a[i].onclick = function(e){
+                document.querySelector('.display').append(this.getAttribute('val'))
+            }
+        }
+        a[a.length - 2].onclick = function(e){
+            document.querySelector('.display').innerHTML = `90`
+        }
+       
+    </script>
+</body>
+</html>
