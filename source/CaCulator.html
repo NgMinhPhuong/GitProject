@@ -19,6 +19,7 @@
     }
 </style>
 <body>
+    
     <table border="1">
         <tr>
             <td class="display" colspan="4">1</td>
@@ -55,13 +56,20 @@
         var a = document.querySelectorAll('button')
         for(var i = 0; i < a.length; i++)
         {
-            if(i == a.length - 2) continue;
+            if(i == a.length - 2 || i == a.length - 4) continue;
             a[i].onclick = function(e){
-                document.querySelector('.display').append(this.getAttribute('val'))
+                display.append(this.getAttribute('val'));
             }
         }
         a[a.length - 2].onclick = function(e){
-            document.querySelector('.display').innerHTML = `90`
+            
+            display.innerHTML = `${eval(display.innerText)}`
+           
+        }
+
+        a[a.length - 4].onclick = function(e){
+            display.innerHTML = ""
+            
         }
        
     </script>
