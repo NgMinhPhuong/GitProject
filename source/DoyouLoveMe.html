@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+</style>
+<body>
+    <h1>Do you Love Me</h1>
+    <button class="yes">YES</button> <button class="no" style="position: relative;left:0;top: 0;">NO</button>
+    <script>
+        
+        document.querySelector('.yes').onclick = function(e){
+            alert('Yes. You are Right!')
+        }
+        
+        document.querySelector('.no').onmouseover = function(e){
+            let a = Math.round(Math.random()*700);
+            let b = Math.round(Math.random()*700);
+            this.style.left = `${a}px`
+            this.style.top = `${b}px`
+        }
+    </script>
+</body>
+</html>
