@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 400px;
+        background-color: #e4ebf0;
+    }
+
+    .btn {
+        width: 50px;
+        height: 15px;
+        background-color: gray;
+        border-radius: 20px;
+        position: relative; 
+    }
+    .cir {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: -2.5px;
+    }
+    .sile {
+        background-color: green;
+        animation: growth ease 1s ;
+    }
+    .sileAbout{
+        background-color: red;
+        animation: growthth ease 1s;
+    }
+
+    .changecol{
+        animation: col 1s linear forwards;
+    }
+    .changecolAbout{
+        animation: colAbout 1s linear;
+    }
+    @keyframes growth{
+        from{
+            left:0%;
+        }
+        to{
+            left: 70%;
+        }
+    }
+    @keyframes growthth{
+        from{
+            left: 70%;
+        }
+        to{
+            left:0%;
+        }
+    }
+
+    @keyframes col{
+        to{
+            background-color: green;
+        }
+    }
+    @keyframes colAbout{
+        to{
+            background-color: gray;
+        }
+    }
+</style>
+<body>
+    <div class="box">
+        <table>
+            <tr>
+                <td><div class="btn">
+                   <div class="cir" style="left: 0%;">
+                    <!-- Hình tròn -->
+                   </div> 
+                </div></td>
+                <td><h3>GOOD</h3></td>
+                
+            </tr>
+            <tr>
+                <td><div class="btn">
+                   <div class="cir" style="left: 0%;">
+                    <!-- Hình tròn -->
+                   </div> 
+                </div></td>
+                <td><H3>CHEAP</H3></td>
+            </tr>
+            <tr>
+                <td><div class="btn">
+                   <div class="cir" style="left: 0%;">
+                    <!-- Hình tròn -->
+                   </div> 
+                </div></td>
+                <td><H3>FAST</H3></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var ElementBtn = document.querySelectorAll('.btn');
+        var ElementCir = document.querySelectorAll('.cir');
+        for(let i = 0; i <ElementCir.length; i++)
+        {
+            ElementCir[i].onclick = function(e){
+                if(this.style.left == '0%')
+                {
+                    console.log(this)
+                    this.classList.add('sile');
+                        
+                        console.log(this)
+                    this.classList.remove('sileAbout')  
+                    ElementBtn[i].classList.add('changecol');
+                    ElementBtn[i].classList.remove('changecolAbout');
+                    
+                    
+                    this.style.left = '70%'; 
+                 
+                    
+                    console.log(this.style.left)
+                }
+                else{
+                    this.classList.add('sileAbout')
+                    console.log(this)
+                    this.classList.remove('sile')
+                    ElementBtn[i].classList.add('changecolAbout');
+                    ElementBtn[i].classList.remove('changecol');
+                        this.style.left = '0%';
+                   
+                    
+                    console.log(this.style.left)
+                }
+            
+            }
+        }
+    </script>
+</body>
+</html>
+
+
