@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt('Nhập lương mổi tháng:'));
+        if(a > 0 && a <= 5000000) alert(`Thuế phải nộp mỗi tháng là: ${0 + a * 5/100}`);
+        else if(a < 10000000) alert(`Thuế phải nộp là ${250000 + a * 10/100}`);
+        else if(a < 18000000) alert(`Thuế phải nộp là ${750000 + a * 15/100}`);
+        else if(a < 32000000) alert(`Thuế phải nộp là ${1950000 + a * 20/100}`);
+        else if(a < 52000000) alert(`Thuế phải nộp là ${4750000 + a * 25/100}`);
+        else if(a < 80000000) alert(`Thuế phải nộp là ${9750000 + a * 30/100}`);
+        else alert(`Thuế phải nộp là ${18150000 + a * 35/100}`);
+
+
+    </script>
+</body>
+</html>

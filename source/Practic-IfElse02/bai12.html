@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt('Nhập số tiền ban đầu'));
+        let b = Number(prompt('Số tháng cho vay:'));
+        let c = Number(prompt('lãi suất ngân hàng một năm(%):'))
+        let t = a * Math.pow((1+(c/100)/12),(b));
+        alert(`Số tiền nhận được trong tương lai khi hết kỳ hạn là: ${t}`)
+    </script>
+</body>
+</html>

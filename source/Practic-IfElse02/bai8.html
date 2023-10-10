@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="red box"></div>
     <script>
-       var a =  document.querySelector('div')
-        console.log(document.querySelector('.red'))
-        console.log(document.querySelector('.box'))
-
+        let a = Number(prompt('Nhập tuổi: '))
+        if(a > 0 && a < 120) alert(`${a} là tuổi của một người` )
+        else {
+            alert(`${a} không phải là tuổi cảu một người`);
+        }
     </script>
 </body>
 </html>
