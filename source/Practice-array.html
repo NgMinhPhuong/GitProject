@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"> <button class="addd" style="border-radius: 3px;">Add</button>
+    <button class="dis" style="border:2px solid #59cff0;border-radius: 2px;">Display</button>
+    <div></div>
+    <script>
+        var cnt = 0;
+        var arr = []
+        var text = '';
+        let ad = document.querySelector('.addd');
+        console.log(ad)
+        ad.onclick = function(e){
+            let val = Number(document.querySelector('input').value);
+            arr.push(val);
+            alert(`Thêm phần tử ${val} vào mảng thành công`);
+        }
+
+        let displ = document.querySelector('.dis')
+        displ.onclick = function(e){
+            text = '<hr>'
+            for(var x in arr)
+            {
+                text += `Element ${x}: ${arr[x]} <br>`;
+            }
+            document.querySelector('div').innerHTML = text;
+        }
+    </script>
+</body>
+</html>
