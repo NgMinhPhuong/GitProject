@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt('Nhập sô nguyên tố muốn in ra:'));
+        function NT(x)
+        {
+            for(let j = 2; j <= Math.sqrt(x); j++)
+            {
+                if(x % j == 0) return false;
+            }
+            return true;
+        }
+        let i = 2;
+        let cnt = 0;
+        while(cnt < a){
+            if(NT(i))
+            {console.log(i)
+            cnt++;}
+        i++;
+        }
+    </script>
+</body>
+</html>
