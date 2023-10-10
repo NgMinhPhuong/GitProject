@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Caro Game Simple</h3>
+    <div></div>
+    <input type="button" value="ChangeValue" onclick="ChangeVal()">
+    <script>
+        var btn = document.querySelector('div');
+        var data = "";
+        var a = [];
+        for(let i = 0; i < 5; i++)
+        {
+            data += '<br>'
+            a[i] = new Array(0,0,0,0,0);
+            for(let x of a[i])
+            data = data + x + '&nbsp;&nbsp'; 
+        }
+       btn.innerHTML = data;
+       function ChangeVal(){
+       let X = Number(prompt('Nhập X: '));
+       let Y = Number(prompt('Nhập Y: '));
+       a[X][Y] = 'x';
+       data = '';
+       for(let i = 0; i < 5; i++)
+       {
+            data += '<br>'
+            for(let j = 0; j < 5; j++)
+            {
+                data = data + a[i][j] + '&nbsp;&nbsp';
+            }
+        }
+        btn.innerHTML = data;
+        }
+    </script>
+</body>
+</html>
