@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let i = 1, j, sout = "";
+        sout += '<table border="1" style="border-collapse: collapse; width: 100%;">'
+        let q = 10;
+        while(q--)
+        {
+            sout += '<tr>'
+            for(j = 1; j <= 10 ; j++)
+            {
+                sout += `<td>${j}*${i}=${j*i}</td>`;
+            }
+            sout += '</tr>';
+            i++;
+        }
+        sout += '</table>'
+        document.write(sout)
+    </script>
+</body>
+</html>
