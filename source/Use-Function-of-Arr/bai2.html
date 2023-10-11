@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var inp = prompt('Nhập chuỗi số: ');
+        var res = '';
+        for(let i = 0; i < inp.length; i++)
+        {
+            if(Number(inp[i+1]) % 2 == 0 && Number(inp[i] % 2 == 0))
+            res = res + inp[i] + '-';
+        else res += inp[i];
+        }
+        console.log(res)
+    </script>
+</body>
+</html>
