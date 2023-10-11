@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 2;
+        let b = 4;
+        function myF(a, b){
+            let re = a;
+            a = b;
+            b = re;
+            console.log(`a là ${a}`)
+            console.log(`b là ${b}`);
+        }
+        myF(a, b);
+    </script>
+</body>
+</html>
