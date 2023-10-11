@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Nhập từ cần dịch">
+    <button>Dịch</button>
+    <div></div>
+    <script>
+        var a = ['hello','thanks','goodbye'];
+        var b = ['Xin chào','Cảm ơn','Tạm biệt'];
+        document.querySelector('button').onclick = function(e)
+        {var f = document.querySelector('input').value;
+        if(a.indexOf(f) != -1) document.querySelector('div').innerHTML = (b[a.indexOf(f)])
+        else document.querySelector('div').innerHTML = 'Ko tìm được'}
+        
+    </script>
+</body>
+</html>
