@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = prompt('Nhập tên ngôi sao: ');
+        var a = [ 'Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+        var b = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major','Leo'];
+        function myF(s){
+            let index = -1;
+            for(let x in a)
+            {
+                if(a[x] == s) return x;
+            }
+            return -1;
+        }
+        if(myF(x) == -1) document.write('Không tìm thấy sao');
+        else document.write(b[myF(x)])
+        
+    </script>
+</body>
+</html>
