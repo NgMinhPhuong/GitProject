@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Caro Game Simple</h3>
+    <div></div> 
+    <br><br>
+    <button onclick="ChangeVal()">Change Value</button>
+    <script>
+        let data = "";
+        var a = [[], [], [], [], []]
+        for(let i = 0; i < 5 ; i++)
+        {
+            data += '<br>';
+            for(let j = 0; j < 5; j++)
+            {
+                a[i][j] = '(.)';
+                data = data + a[i][j] + '&nbsp;&nbsp';
+            }
+        }                   
+        var cnt = 0;
+        document.querySelector('div').innerHTML = data;
+        // Kiểm tra kết thúc trò chơi
+        function checkwin(){
+            for(let i = 0; i < 5; i++)
+            {
+                for(let j = 0; j < a[0].length - 2; j++)
+                {
+                    if((a[i][j] == 'x ' || a[i][j] == 'o ') && a[i][j] == a[i][j+1] && a[i][j] == a[i][j+2]) return true;
+                    if((a[j][i] == 'x ' || a[j][i] == 'o ') && a[j][i] == a[j+1][i] && a[j][i] == a[j+2][i]) return true;
+                }
+            }
+            return false;
+        }
+        // Function onclick here
+        function ChangeVal(){
+            data = "";
+            let x = prompt("Nhập x: ")
+            let y = prompt('Nhập y: ');
+            if(cnt % 2 == 0)        //Lươt của o
+            {
+                a[x][y] = 'o ';
+                for(let i = 0; i < 5 ; i++)
+                {
+                    data += '<br>';
+                    for(let j = 0; j < 5; j++)
+                {
+                    data = data + a[i][j] + '&nbsp;&nbsp';
+                }
+                }
+                document.querySelector('div').innerHTML = data;
+                cnt++;
+                if(checkwin()) alert('O win');
+            }
+            else {          // Lượt của x
+                a[x][y] = 'x ';
+                for(let i = 0; i < 5 ; i++)
+                {
+                    data += '<br>';
+                    for(let j = 0; j < 5; j++)
+                {
+                    data = data + a[i][j] + '&nbsp;&nbsp';
+                }
+                }
+                document.querySelector('div').innerHTML = data;
+                cnt++;
+                if(checkwin()) alert('X win');
+            } 
+        }
+    </script>
+</body>
+</html>
