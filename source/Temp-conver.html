@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Fahrenheit <input type="text" placeholder="Fahrenheit" oninput="temperratureConverter()"></h5>
+    <p>Celsius: <span class="res"></span></p>
+    <script>
+        function temperratureConverter(){
+            let v = Number(document.querySelector('input').value)
+            document.querySelector('.res').innerHTML = (v-32)/1.8; 
+        }
+        
+    </script>
+</body>
+</html>
