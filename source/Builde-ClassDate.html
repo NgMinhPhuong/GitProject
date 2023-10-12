@@ -9,7 +9,7 @@
     <canvas id="can" style=" width: 400px;height: 400px;border: 3px dotted black;"></canvas>
     <script>
        let MyDate = function(day, month, year) {
-
+//các phương thức
 this.day = day;
 
 this.month = month;
@@ -37,17 +37,17 @@ this.setYear = function(year) {
 
 };
 let date = new MyDate(2, 2, 2007);
-
+//Set lại
 date.setDay(10);
 date.setMonth(10);
 date.setYear(2019);
-
+//gán sau khi set
 let day = date.getDay();
 
 let month = date.getMonth(); 
 
 let year = date.getYear(); 
-
+//in ra
 alert(day + "/" + month + "/" + year);
 
     </script>
