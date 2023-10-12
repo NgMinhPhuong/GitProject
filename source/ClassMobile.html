@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        function Mobile(baterry)
+        {
+            let messReceived = []
+            let messSent = []
+            this.checkOnOff = false;
+            this.baterry = '';
+            this.reMessage = '';
+            this.reMessageTo = '';
+            this.reMessageSend = '';
+            this.turnOn = function(){
+                this.checkOnOff = true;
+            }
+            this.charging = function(){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                if(this.baterry == 100) {console.log('Pin đầy rồi ^^'); return;}
+                this.baterry += 5;
+                if(this.baterry > 100) this.baterry = 100;
+            }
+            this.soanMessage = function(s){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                this.reMessage = s;  
+                baterry--;       
+            }
+
+            this.receiveMessage = function(s){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                messReceived.push(s)
+                baterry--;
+            }
+
+            this.sentMessage = function(){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                messSent.push(this.reMessage);
+                baterry--;
+                this.reMessage = '';
+            }
+
+            this.showMessReceived = function(){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                for(let x in messReceived)
+                {
+                    console.log(`${Numer(x)+1}: ${messReceived[x]}`)
+                }
+                baterry--;
+            }
+
+            this.showMessSent = function(){
+                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
+                for(let x in messSent)
+                {
+                    console.log(`${Number(x)+1}: ${messSent[x]}`)
+                }
+                baterry--;
+            }
+        }
+        let Ip16 = new Mobile(100,'','','')
+        Ip16.turnOn();
+        Ip16.soanMessage('tao thử gửi chơi thôi nhé');
+        console.log(Ip16.reMessage)
+        Ip16.sentMessage();
+        Ip16.soanMessage('Soạn thêm 1 lần');
+        Ip16.sentMessage();
+        Ip16.showMessSent();
+        
+    </script>
+</body>
+</html>
