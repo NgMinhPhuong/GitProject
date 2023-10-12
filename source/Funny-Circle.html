@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .dong{
+        animation:ab ease 2s,ac ease 2s;
+    }
+
+    @keyframes ab{
+        form{
+            transform:translateX(20px)
+        }
+        to{
+            transform: translateX(100px);
+        }
+    }
+    @keyframes ac {
+        
+        to{
+            transform: translateX(20px);
+        }
+    }
+</style>
+<body>
+    <canvas id="myCanvas" width="1368px" height="768px" style="border:none;"></canvas>
+    <script>
+//khởi tạo lớp hình tròn
+    function Circle(x, y, radius){
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+}
+//Hàm lấy mã màu random
+function getRandomHex(){
+    return Math.floor(Math.random()*255);
+}
+//Hàm trả về một màu rgb dưới dạng chuỗi thông qua phương thức lấy mã random trước đó
+function getRandomColor(){
+   var red = getRandomHex();
+   var green = getRandomHex();
+   var blue = getRandomHex();
+	 return "rgb(" + red + "," + blue + "," + green +")";
+}
+// Hàm vẽ hình tròn với các radius random và toạ độ tâm x, y(random)
+function createCircle(){
+    var ctx = document.getElementById("myCanvas").getContext("2d");
+    var radius = Math.floor(Math.random() * 80);
+    var color = getRandomColor();
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+    var circle= new Circle(x, y, radius);
+    ctx.beginPath();
+    ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+    setTimeout(document.getElementById('myCanvas').classList.toggle('dong'),5000);
+    
+}
+
+//Hàm để về nhiều hình tròn bằng cách sử dụng vòng lặp
+function alotofCircle(){
+    for(let i =0; i < 39; i++)
+    createCircle();
+}
+
+
+alotofCircle();
+    </script>
+</body>
+</html>
