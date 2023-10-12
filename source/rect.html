@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="DemoCanvas" width="500px" height="600px"></canvas>
+    <script>
+        
+        function Rectangle(dai, rong){
+            this.dai = dai;
+            this.rong = rong;
+            this.Srect = function(){
+                return this.dai * this.rong;
+            }
+            this.Cvrect = function(){
+                return (this.dai + this.rong) * 2;
+            }
+        }
+        function draa(dai, rong){
+            
+            let hh = document.getElementById('DemoCanvas');
+            console.log(hh)
+            let b = hh.getContext('2d');
+            var rec = new Rectangle(dai, rong);
+            b.fillStyle = 'green';
+            b.fillRect(100, 100, rec.dai, rec.rong);
+            b.fill();
+            document.write(rec.Srect()+ '     ' + rec.Cvrect())
+        }
+        draa(100,100);//Nhap chiều dài va rộng vào đây để vể
+    </script>
+</body>
+</html>
