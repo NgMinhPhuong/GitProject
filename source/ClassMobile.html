@@ -10,10 +10,10 @@
     <script>
         function Mobile(baterry)
         {
-            let messReceived = []
-            let messSent = []
+            this.messReceived = [];
+            this.messSent = [];
             this.checkOnOff = false;
-            this.baterry = '';
+            this.baterry = baterry;
             this.reMessage = '';
             this.reMessageTo = '';
             this.reMessageSend = '';
@@ -29,49 +29,45 @@
             this.soanMessage = function(s){
                 if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
                 this.reMessage = s;  
-                baterry--;       
+                this.baterry--;       
             }
 
-            this.receiveMessage = function(s){
+            this.sentMessage = function(another){
+                
                 if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
-                messReceived.push(s)
-                baterry--;
-            }
-
-            this.sentMessage = function(){
-                if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
-                messSent.push(this.reMessage);
-                baterry--;
+                this.messSent.push(this.reMessage);
+                this.baterry--;
+                another.messReceived.push(this.reMessage);
                 this.reMessage = '';
             }
 
             this.showMessReceived = function(){
                 if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
-                for(let x in messReceived)
+                for(let x in this.messReceived)
                 {
-                    console.log(`${Numer(x)+1}: ${messReceived[x]}`)
+                    console.log(`${Number(x)+1}: ${this.messReceived[x]}`)
                 }
-                baterry--;
+                this.baterry--;
             }
 
             this.showMessSent = function(){
                 if(this.checkOnOff == false) {console.log('chưa mở máy');return;}
-                for(let x in messSent)
+                for(let x in this.messSent)
                 {
-                    console.log(`${Number(x)+1}: ${messSent[x]}`)
+                    if(this.messSent.hasOwnProperty(x))
+                    console.log(`${Number(x)+1}: ${this.messSent[x]}`)
                 }
-                baterry--;
+                this.baterry--;
             }
         }
-        let Ip16 = new Mobile(100,'','','')
+        let Ip16 = new Mobile(100);
+        let Ip17 = new Mobile(100);
         Ip16.turnOn();
-        Ip16.soanMessage('tao thử gửi chơi thôi nhé');
-        console.log(Ip16.reMessage)
-        Ip16.sentMessage();
-        Ip16.soanMessage('Soạn thêm 1 lần');
-        Ip16.sentMessage();
+        Ip17.turnOn();
+        Ip16.soanMessage('helo íp7');
+        Ip16.sentMessage(Ip17);
         Ip16.showMessSent();
-        
+           
     </script>
 </body>
 </html>
