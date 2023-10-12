@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Circle = function(radius) {
+
+    this.radius = radius;
+
+    this.getRadius = function() {
+        return radius;
+    }
+    this.getArea = function() {
+        return Math.PI * radius * radius;
+    }
+
+    };
+    let circle = new Circle(3);
+    let radius = circle.getRadius(); // 3
+
+    let area = circle.getArea(); // 28.274333882308138 
+    alert("radius: " + radius + "; area: " + area);
+    </script>
+</body>
+</html>
