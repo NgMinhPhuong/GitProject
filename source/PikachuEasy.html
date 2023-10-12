@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script>
+    function Hero(image, top, left, size, speed){
+    this.luuTop = top;
+    this.luuLeft = left;
+    this.image = image;
+    this.top = top;
+    this.left = left;
+    this.size = size;
+    this.speed = speed;
+
+    this.getHeroElement = function(){
+        return '<img width="'+ this.size + '"' +
+        ' height="'+ this.size + '"' +
+        ' src="' + this.image +'"' +
+        ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+    }
+    // Sang phải
+    this.moveRight = function(){
+        this.left += this.speed;
+        console.log('ok: ' + this.left);
+    }
+    //đi xuống
+    this.moveBottom = function(){
+       this.top += this.speed;
+    }
+    //sang trái
+    this.moveLeft = function(){
+        this.left -= this.speed;
+    }
+    //đi lên
+    this.moveTop = function(){
+        this.top -= speed;
+    }
+}
+
+    var hero = new Hero('https://raw.githubusercontent.com/codegym-vn/objects/8cd63b4aa2ded131f8de203a2144fd23447608b3/pikachu.png', 20, 30, 200, 30);
+    var check = 0;
+    function start(){
+        if(check == 0)
+        {
+            hero.moveRight();console.log(`this.size ${hero.size}`)
+            if(hero.left >= (window.innerWidth - hero.size)) check = 1;
+        }
+        else if(check == 1) 
+        {
+            hero.moveBottom();
+            if(hero.top >= (window.innerHeight - hero.size)) check = 2;
+        }
+        else if(check == 2)
+        {
+            hero.moveLeft();
+            if(hero.left <= hero.luuLeft ) check = 3;
+
+        }
+        else{
+            hero.moveTop();
+            if(hero.top <= hero.luuTop) check = 0;
+        }
+    
+
+    
+    document.getElementById('game').innerHTML = hero.getHeroElement();
+    //setTimeout(start, 1000)
+}
+    setInterval(start,200);
+    
+    </script>
+  </body>
+</html>
