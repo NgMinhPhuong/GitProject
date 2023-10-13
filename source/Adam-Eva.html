@@ -42,8 +42,12 @@
             }
 
             eatApple(apple){
+              if(!apple.isEmpty())
+              {
               apple.weight--;
               this.weight++;
+              }
+              else alert('hết táo')
             }
 
             say(s){
