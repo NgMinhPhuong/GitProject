@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function Apple(){
+              this.weight = 10;
+              this.isEmpty = function(){
+                return this.weight == 0;
+              }
+              this.decrese = function(){
+                this.weight--;
+                if(this.weight < 0) this.weight = 0;
+              }
+              this.getWeight = function(){
+                return this.weight
+              }
+        }
+        //---------------------
+        class Huaman{
+            constructor(name, gender, weight){
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            isMale(){
+             return this.gender;
+            }
+
+            setGender(gender){
+              this.gender = gender;
+            }
+
+            checkApple(apple){
+              return apple.getWeight() > 0;
+            }
+
+            eatApple(apple){
+              apple.weight--;
+              this.weight++;
+            }
+
+            say(s){
+              console.log(s);
+            }
+
+            getName(){
+              return this.name;
+            }
+
+            setName(name){
+              this.name = name;
+            }
+
+            getWeight(){
+              return this.weight;
+            }
+
+            setWieght(weight){
+              this.weight = weight;
+            }
+
+        }
+        
+        var a = new Apple();
+        var hum = new Huaman('phuong', false, 23);
+        hum.setWieght(60);
+        hum.eatApple(a);
+        console.log(hum.getWeight())
+        console.log(a.getWeight())
+        
+       
+        
+    </script>
+</body>
+</html>
