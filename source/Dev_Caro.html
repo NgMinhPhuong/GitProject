@@ -57,7 +57,7 @@
             var allTD = document.querySelectorAll('td');
             console.log(allTD);
             function checkWin(Thea){
-                for(let i = 0; i < 3; i++)
+ outer:         for(let i = 0; i < 4; i++)
                 {   ///Kiểm tra X có win ko 
                         let inn;  
                         let limitTop = +Thea.getAttribute('class');
@@ -71,24 +71,34 @@
                                     limitTop = +allTD[limitTop].getAttribute('class'); break;
                                 }
                                 limitTop -= (size + 1); 
-                                inn = (size + 1);
+                                
+                                
                             } 
                             else if(i == 1){
                                 if(allTD[limitTop].id == '999991'){
                                     limitTop = +allTD[limitTop].getAttribute('class'); break;
                                 }
                                 limitTop -= size;
-                                inn = size;
+                               
                             }  
-                            else{
+                            else if(i == 2){
                                 if(allTD[limitTop].id == '999991' || allTD[limitTop].id == '999992'){
-    
                                     limitTop = +allTD[limitTop].getAttribute('class'); break;
                                 }
                                 limitTop -= (size - 1);
-                                inn = (size - 1);
+                            }
+                            else{
+                                if(allTD[limitTop].id == '999994'){
+    
+                                    limitTop = +allTD[limitTop].getAttribute('class'); break;
+                                }
+                                limitTop -= 1;
                             }      
                         }
+                            if(i == 0) inn = size + 1;
+                            else if( i == 1) inn = size;
+                            else if(i == 2) inn = size - 1;
+                            else inn = 1;
                         q = 4;
                   //----------------------      
                         while(q--){
@@ -106,13 +116,21 @@
                                 }
                                 limitBottom += size;
                             }
-                            else{
+                            else if(i == 2){
                                 if(allTD[limitBottom].id == '999993' || allTD[limitBottom].id == '999994'){
                                     limitBottom = +allTD[limitBottom].getAttribute('class'); break;
                                 }
                                 limitBottom += (size - 1);
                             }
-                        }                      
+                            else{
+                                if(allTD[limitBottom].id == '999992'){
+                                    limitBottom = +allTD[limitBottom].getAttribute('class'); break;
+                                }
+                                limitBottom += 1;
+                            }
+                        }       
+                        console.log('------------'+i)
+                        console.log(limitTop,limitBottom,`in: ${inn}`)               
                     //---------------------------Kiểm tra chiến thắng
                         for(let j = limitTop; j <= limitBottom; j+=inn){
                             let dem = 0;
@@ -120,12 +138,18 @@
                                 if(k > limitBottom) break;
                                 if(allTD[k].innerText == Thea.innerText) dem++;
                             }
+                            console.log('----------dem j ='+j)
+                            console.log(dem);
                             let ch;
                             if(Thea.innerText == 'X') ch = 'O';
                             else ch = 'X'
-                            if(dem == 5) alert(`${Thea.innerText} thắng rồi con gà ${ch}`);
+                            if(dem == 5) {
+                                alert(`${Thea.innerText} thắng rồi con gà ${ch}`);
+                                document.querySelector('div').innerHTML = '' 
+                                break outer;
+                            }
                         }   
-                } 
+                }
             }
             for(let i = 0; i < size*size; i++)
             {
@@ -135,6 +159,7 @@
                     {
                         this.innerText = 'X';
                         check++;
+                        checkWin(this);
                     }
                 }
                 else {
@@ -143,9 +168,9 @@
                         this.innerText = 'O';
                         this.style.color = 'red';
                         check++;
-                    }
+                        checkWin(this);
+                    }      
                 }
-                checkWin(this);
                 }       
             }
         }
