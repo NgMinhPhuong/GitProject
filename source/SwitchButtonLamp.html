@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ElectricLamp{
+            constructor(){
+                this.status = false;
+            }
+            turnOff(){
+                this.status = false;
+            }
+
+            turnOn(){
+                this.status = true;
+            }
+        }
+        //-----------------------------------
+        class Button{
+            constructor()
+            {
+                this.status = false;
+            }
+
+            connectToLamp(ElectricLamp)
+            {
+               this.lamp = ElectricLamp;
+              
+            }
+
+            switchOff(){
+                if(!this.lamp) {console.log('chưa kết nối'); return;} 
+                this.status = false;
+                this.lamp.turnOff();
+            }
+
+            switchOn(){
+                if(!this.lamp) {console.log('chưa kết nối'); return;}
+                this.status = true;
+                this.lamp.turnOn();
+            }
+        };
+            var a = new ElectricLamp();
+            var Swi = new Button();
+            
+            Swi.switchOff();
+            console.log(a.status, Swi.status)
+            Swi.switchOn();
+            console.log(a.status, Swi.status)
+            
+            
+    </script>
+</body>
+</html>
