@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="play()">Chơi thì bấm vào đây hộ tao cái</button>
+    <script>
+        function play(){
+        let a = +prompt('Bạn muốn đoán từ: ')
+        let b = +prompt('Bạn muốn đoán đến: ')
+        b -= a;
+        ran = Math.round(Math.random() * b) + a;
+        let n;
+        let cnt = 0;
+        
+    do{
+        if(cnt == 3) {alert('Bạn đã hết số lần đoán. Thua nhé con gà!');break;}
+        n = prompt('Số bạn đoán là: ');
+        if(n > ran ) alert('Số bạn đoán to hơn')
+        else if(n < ran) alert('Số bạn đoán nhỏ hơn')
+        else {alert('Mày thắng rồi đấy!'); break;}
+        cnt++;
+    }while(true);
+        }
+    </script>
+</body>
+</html>
