@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+</style>
+<body>
+    <h1 align="center">Type anything slowly</h1>
+    <div style="display: flex;justify-content: center;"><input value="" style="width: 200px;height: 200px;" type="text" oninput="play()"></div>
+    <script>
+        let text = 'Tôi ngu ngục nhất hệ mặt trời!'
+        var index = 0;
+        var res = '';
+        function play(){
+                if(index == text.length){
+                    index = 0;
+                    res = '';
+                }
+                res += text[index];
+                index++;
+                document.querySelector('input').value = res;
+            
+            
+
+        }
+    </script>
+</body>
+</html>
