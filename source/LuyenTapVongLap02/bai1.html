@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [0, 1, 1];
+        let i = 3;
+        document.write(`0 <br> 1 <br> 1 <br>`)
+        while(i < 1000)
+        {
+            a.push(a[i - 1] + a[i - 2]);
+            document.write(a[a.length - 1] + ' <br>')
+            i++;
+        }
+    </script>
+</body>
+</html>
