@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = [];
+        var b = [];
+        n = 10;
+        var cnt = 1;
+        while(n--){
+            let inpa = +prompt(`Nhập phần tử thứ ${cnt} trong mảng a: `)
+            a.push(inpa)
+            let inpb = +prompt(`Nhập phần tử thứ ${cnt} trong mảng b: `)
+            b.push(inpb);
+            cnt++;
+        }
+        var c = [];
+        c = a.concat(b);
+        document.write(c)
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = [];
+        let n = +prompt('Nhập kích thước mảng: ')
+        let cnt = 0;
+        while(n--){
+            let inp = +prompt(`Nhập phần tử thứ ${cnt}`)
+            a.push(inp);
+            cnt++;
+        }
+        let l = 0;
+        let r = a.length - 1;
+        while(l < r){
+            let sav = a[l];
+            a[l] = a[r];
+            a[r] = sav;
+            l++; r--;
+        }
+        console.log(a)
+    </script>
+</body>
+</html>

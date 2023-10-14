@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = [1,5,10,12,6,27,33,0,4,11];
+        let maxx = a[0];
+        let sum = 0;
+        for(var x of a)
+        {
+            sum += x;
+            if(x > maxx ) maxx = x;
+        }
+        alert(`Giá trị lớn nhất trong mảng là ${maxx}
+Giá trị trung bình của các phần tử trong mảng là: ${sum / a.length}`)
+    </script>
+</body>
+</html>
