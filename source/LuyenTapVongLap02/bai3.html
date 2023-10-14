@@ -7,7 +7,59 @@
 </head>
 <body>
     <script>
-        let n =
+        let n = +prompt('Nhập chiều cao tam giác vuông');
+        let de = +prompt('Chọn hướng góc vuông(1,2,3,4): ')
+        if(de == 1){
+            for(let i = 1; i <= n ; i++)
+            {
+                for(let j = 1; j <= i; j++)
+                {
+                    document.write('*')
+                }
+                document.write('<br>')
+            }
+        }
+        else if(de == 2){
+            for(let i = 1; i <= n ; i++)
+            {
+                for(let j = n - i + 1; j >= 1; j--)
+                {
+                    document.write('*')
+                }
+                document.write('<br>')
+            }
+        }
+        else if(de == 3){
+            for(let i = 1; i <= n ; i++)
+            {
+                for(let j = 1; j <= i - 1 ; j++)
+                {
+                    document.write('&nbsp;&nbsp')
+                }
+
+                for(let k = 1; k <= n - (i - 1); k++)
+                {
+                    document.write('*')
+                }
+                document.write('<br>')
+            }
+        }
+        else {
+            for(let i = 1; i <= n ; i++)
+            {
+                for(let j = 1; j <= n - i ; j++)
+                {
+                    document.write('&nbsp;&nbsp')
+                }
+
+                for(let k = 1; k <= n - n + i; k++)
+                {
+                    document.write('*')
+                }
+                document.write('<br>')
+            }    
+        }
+        
     </script>
 </body>
 </html>

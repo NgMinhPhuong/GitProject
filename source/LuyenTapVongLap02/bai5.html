@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = +prompt('Số tiền gửi');
+        let month = +prompt('Số tháng gửi');
+        let h = +prompt('Lãi suất(%): ') / 100;
+        alert(`Lãi suất bạn nhận được sau ${month} tháng là : ${p* (Math.pow(1 + h, month))}`);
+    </script>
+</body>
+</html>
