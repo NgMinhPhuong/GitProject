@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .col {
+        height: 70px;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        height: 24%;
+    }
+    button{
+        margin-left: 5px;
+        height: 30%;
+        background-color: #50af50;
+    }
+    
+
+    tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+</style>
+<body>
+    <h2>Add New Product</h2>
+    <div class="col"><input type="text"> 
+    <button onclick="add()">Add</button></div>
+    <h2>Display All Product</h2>
+    <div class="display"></div>
+   
+    <script>
+        var a = []
+        var cnt = 0;
+        //Hiển thị danh sách product
+        function add(){      
+            let valAdd = document.querySelector('input').value;
+            if(valAdd == '') return;
+            cnt ++;
+            a.push(valAdd);
+            let disp = document.querySelector('.display')
+            let text = `<table style="width: 100%; text-align: center">
+                <tr><th >Product Name</th> <th></th> <th align='right'>${cnt} Product</th></tr>`;
+            for(var x in a)
+            {
+                text += '<tr>'
+                    text += `<td>${a[x]}</td> <td><button id="${x}" onclick="edit(this.id)">Edit</button></td> <td><button id="${x}" onclick="deletee(this.id)">Delete</button></td>` 
+                text += '</tr>'              
+            }
+            text += '</table>'; 
+            disp.innerHTML = text;
+            document.querySelector('input').value = ""; 
+        }
+        
+        //Chỉnh sửa tên
+        function edit(t){
+            let e = prompt('Bạn muốn sửa thành: ')
+            if( e == null || e == '') return;
+            a[t] = e;
+            let disp = document.querySelector('.display')
+            let text = `<table style="width: 100%; text-align: center">
+                <tr><th >Product Name</th> <th></th> <th align='right'>${cnt} Product</th></tr>`;
+            for(var x in a)
+            {
+                text += '<tr>'
+                    text += `<td>${a[x]}</td> <td><button id="${x}" onclick="edit(this.id)">Edit</button></td> <td><button id="${x}" onclick="deletee(this.id)">Delete</button></td>` 
+                text += '</tr>'              
+            }
+            text += '</table>'; 
+            disp.innerHTML = text;
+            document.querySelector('input').value = "";
+
+        }
+        //Xoá sản phẩm
+        function deletee(t){
+            let conf = confirm('Bạn chắc chắn muốn xoá nó chứ')
+            if(!conf) return;
+            cnt--;
+            a.splice(t,1);
+            let disp = document.querySelector('.display')
+            let text = `<table style="width: 100%; text-align: center">
+                <tr><th >Product Name</th> <th></th> <th align='right'>${cnt} Product</th></tr>`;
+            for(var x in a)
+            {
+                text += '<tr>'
+                    text += `<td>${a[x]}</td> <td><button id="${x}" onclick="edit(this.id)">Edit</button></td> <td><button id="${x}" onclick="deletee()">Delete</button></td>` 
+                text += '</tr>'              
+            }
+            text += '</table>'; 
+            disp.innerHTML = text;
+            document.querySelector('input').value = "";
+        }
+    </script>
+</body>
+</html>
