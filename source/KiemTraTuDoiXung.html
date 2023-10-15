@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var s = 'rotor';
+    var a = '';
+    var b = '';
+    
+    function isPalindrome(s, k){
+       if(k == s.length){
+        return;
+       }
+       a += s[k]
+       isPalindrome(s ,k + 1);
+       b += s[k];
+       if(a == b) return true;
+       return false;
+    }
+    console.log(isPalindrome(s, 0));
+</script>
+</body>
+</html>
