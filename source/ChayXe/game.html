@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="scream" src="images/up1.png" alt="21">
+    <canvas  width="500px" height="500px" style="border: 1px solid black;"></canvas>
+    
+    <script>
+    const WIDTH = 50;
+    const HEIGHT = 50;
+    var xcu = 0, ycu = 0;
+        function RIGHT(Car){
+            deleteeRIGHT()
+            deleteeBot()
+            deleteeTOP()
+            deleteeLEFT()
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'green';
+            b.fillRect(Car.x, Car.y, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(Car.x + WIDTH, Car.y + HEIGHT/2, HEIGHT/2,Math.PI/2, Math.PI*2*3/4,true)
+            b.fillStyle = 'red'
+            b.fill();
+            xcu = Car.x;
+            ycu = Car.y;
+            b.closePath();
+        }
+        
+        function LEFT(Car){
+            deleteeBot()
+            deleteeTOP()
+            deleteeLEFT()
+            deleteeRIGHT();
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'green';
+            b.fillRect(Car.x, Car.y, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(Car.x, Car.y + HEIGHT/2,HEIGHT/2, Math.PI*2*3/4, Math.PI/2,true)
+            b.fillStyle = 'red'
+            b.fill();
+            xcu = Car.x;
+            ycu = Car.y;
+            b.closePath();
+        }
+
+        function TOP(Car){
+            deleteeTOP();
+            deleteeLEFT()
+            deleteeRIGHT();
+            deleteeBot();
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'green';
+            b.fillRect(Car.x, Car.y, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(Car.x + WIDTH/2,Car.y, WIDTH/2, 0, Math.PI,true)
+            b.fillStyle = 'red'
+            b.fill();
+            xcu = Car.x;
+            ycu = Car.y;
+            b.closePath();
+        }
+
+        function BOTTOM(Car){
+            deleteeTOP();
+            deleteeLEFT();
+            deleteeRIGHT()
+            deleteeBot();
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'green';
+            b.fillRect(Car.x, Car.y, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(Car.x + WIDTH/2, Car.y + HEIGHT, WIDTH/2, 0, Math.PI,false)
+            b.fillStyle = 'red'
+            b.fill();
+            xcu = Car.x;
+            ycu = Car.y;
+            b.closePath();
+        }
+        
+        function deleteeBot(){
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'white';
+            b.fillRect(xcu, ycu, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(xcu + WIDTH/2, ycu + HEIGHT, WIDTH/2, 0, Math.PI,false)
+            b.fillStyle = 'white'
+            b.fill();
+            b.closePath();
+        }
+
+        function deleteeTOP(){
+            let a = document.querySelector('canvas')
+           
+            let b = a.getContext('2d');
+            b.fillStyle = 'white';
+            b.fillRect(xcu, ycu, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(xcu + WIDTH/2,ycu, WIDTH/2, 0, Math.PI,true)
+            b.fillStyle = 'white'
+            b.fill();
+            b.closePath();
+        }
+
+        function deleteeLEFT(){
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'white';
+            b.fillRect(xcu, ycu, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(xcu, ycu + HEIGHT/2,HEIGHT/2, Math.PI*2*3/4, Math.PI/2,true)
+            b.fillStyle = 'white'
+            b.fill();
+            b.closePath();
+        }
+
+        function deleteeRIGHT(){
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+            b.fillStyle = 'white';
+            b.fillRect(xcu, ycu, WIDTH, HEIGHT);
+            b.beginPath();
+            b.arc(xcu + WIDTH, ycu + HEIGHT/2, HEIGHT/2,Math.PI/2, Math.PI*2*3/4,true)
+            b.fillStyle = 'white'
+            b.fill();
+            b.closePath();
+        }
+        class Car{
+            constructor(speed , x, y)
+            {
+                this.speed = speed;
+                this.x = x;
+                this.y = y;
+            }
+        }
+        let xeat,yeat;
+        function chuongngai(){
+            xeat = Math.round(Math.random()*500);
+            yeat = Math.round(Math.random()*500);
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d')
+            b.fillRect(xeat,yeat, 5, 5)
+            b.fill();
+
+        }
+        let a = new Car(20,20,40);
+        window.onkeydown = function(e){
+            let sp = 0;
+            if(e.ctrlKey) sp = a.speed;
+            switch (e.which) {
+                case 37:
+                    LEFT(a)
+                    a.x -= a.speed + sp;
+                    break;
+            
+                case 38:
+                    TOP(a)
+                    a.y -= a.speed + sp;
+                    break;
+                case 39:
+                    RIGHT(a)
+                    a.x += a.speed + sp;
+                    break;
+                case 40:
+                    BOTTOM(a);
+                    a.y += a.speed + sp;
+                    break;
+            }
+        } 
+        
+        function trang(){
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d');
+          
+            b.fillRect(0, 0 , 100, 200)
+            b.fill();
+            b.cleararc()
+        }
+        let aa = document.querySelector('canvas'); 
+        let bb = aa.getContext('2d');
+        var img = document.getElementById('scream')
+      console.log(img);
+       bb.drawImage(img, 300 , 300)
+       
+        
+        
+        
+       
+
+        
+</script>    
+</body>
+</html>
