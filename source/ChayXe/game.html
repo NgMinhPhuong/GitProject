@@ -8,6 +8,7 @@
 <body>
     <img id="scream" src="images/up1.png" alt="21">
     <canvas  width="500px" height="500px" style="border: 1px solid black;"></canvas>
+    <h1>0</h1>
     
     <script>
     const WIDTH = 50;
@@ -142,7 +143,7 @@
             }
         }
         let xeat,yeat;
-        function chuongngai(){
+        function food(){
             xeat = Math.round(Math.random()*500);
             yeat = Math.round(Math.random()*500);
             let a = document.querySelector('canvas')
@@ -151,7 +152,16 @@
             b.fill();
 
         }
-        let a = new Car(20,20,40);
+
+        function chuongngai(){
+            xeat = Math.round(Math.random()*500);
+            yeat = Math.round(Math.random()*500);
+            let a = document.querySelector('canvas')
+            let b = a.getContext('2d')
+            b.fillRect(xeat,yeat, 20, 20)
+            b.fill();
+        }
+        let a = new Car(1,20,40);
         window.onkeydown = function(e){
             let sp = 0;
             if(e.ctrlKey) sp = a.speed;
@@ -175,7 +185,7 @@
                     break;
             }
         } 
-        
+        var score = 0;
         function trang(){
             let a = document.querySelector('canvas')
             let b = a.getContext('2d');
@@ -186,15 +196,17 @@
         }
         let aa = document.querySelector('canvas'); 
         let bb = aa.getContext('2d');
-        var img = document.getElementById('scream')
-      console.log(img);
-       bb.drawImage(img, 300 , 300)
+        chuongngai();
+        food();
+        
+        let foodd = setInterval(() => {
+            if(Car.x == xeat && Car.y == yeat)
+            {
+                score += 100;
+                document.querySelector('h1').innerHTML = score
+            }
+        }, 100);
        
-        
-        
-        
-       
-
         
 </script>    
 </body>
