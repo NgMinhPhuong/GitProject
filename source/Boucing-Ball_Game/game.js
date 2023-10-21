@@ -1,4 +1,4 @@
-const SPEED = 1;       
+const SPEED = 3;       
 
 class GameBoard{
     constructor(width, height){
@@ -132,15 +132,16 @@ var cnt = 233;
 var game = new GameBoard(400, 400);
 var bar = new Bar(80, 12, 0, 10, 320)
 var ball = [];
-for(let i = 0; i < 233; i++)
+
+var col = ['gray','green','red','blue','white','pink','black','yellow']
+var co = 0;
+function play(){
+    for(let i = 0; i < 233; i++)
 {
     let x = Math.random()*(game.width - SPEED);
     let y = Math.random()*(bar.top - SPEED);
     ball[i] = new Ball(x, y, 10, SPEED);
 }
-var col = ['gray','green','red','blue','white','pink','black','yellow']
-var co = 0;
-function play(){
     let MoveBall = setInterval(function()
     {             
         for(let i = 0; i < 233; i++)
