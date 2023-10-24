@@ -3,11 +3,13 @@ class snake {
         this.game = game;
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
+        this.numOfChain = 20;
         this.listenMouseEvent();
         this.angel = 0;
+        this.eye = new eye(this);
         this.tailPosition = [];
         this.createTail();
-        
+       
     }
 
     listenMouseEvent(){
@@ -17,11 +19,17 @@ class snake {
                 x: event.clientX - rect.left,
                 y: event.clientY - rect.top
             })
-           
         })
-        this.game.canvas.addEventListener('click', (e)=>{
-            console.log(this.angel);
-        })
+        window.onmousedown = function(e){
+            SNAKE_SPEED *= 1.5;
+            
+        } 
+        window.onmouseup = function(e){
+            SNAKE_SPEED /= 1.5;
+        }
+        
+            
+        
         
     }
 
@@ -30,11 +38,10 @@ class snake {
             mousePos.y - (SCREEN_HEIGHT / 2),
             mousePos.x - (SCREEN_WIDTH / 2)
         );
-        
     }
 
     createTail(){
-        for(let i = 0; i < 100; i++)
+        for(let i = 0; i < this.numOfChain; i++)
         {
             this.tailPosition.push(
                 {
@@ -55,11 +62,12 @@ class snake {
         this.tailPosition.unshift(newTailPosition);  
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
+       
     }
 
     draw(){
         //draw shadow
-        for(let i = this.tailPosition.length - 1; i > 1 ; i--){
+        for(let i = this.tailPosition.length - 1; i > 0 ; i--){
             
                 this.game.screen.drawCircle(
                     {
@@ -68,13 +76,10 @@ class snake {
                     },
                     'shadow'
                 );
-            
-            
         }
     
-
         //draw body
-        for(let i = this.tailPosition.length - 1; i > 1 ; i--){////////////////
+        for(let i = this.tailPosition.length - 1; i > 0 ; i--){////////////////
             if(i % 3 == 0){
                 this.game.screen.drawCircle(
                     {
@@ -85,9 +90,8 @@ class snake {
                 );
             } 
         }
-
         //draw head 
-
-        
+        this.eye.draw();
+       console.log(this.numOfChain);
     }
 }

@@ -33,6 +33,14 @@ class screen{
             color: 'black',
             width: 5
         }
+        
+        let col = ['red','green','blue','yellow','pink','gray','white', 'black','purple'];
+        let colo = col[Math.round(Math.random() * (col.length - 1))];
+        styles['food'] = {
+            boderColor: 'black',
+            color: colo,
+            width: 5
+        }
 
         let styleProperties = styles[styleName];
         this.game.ctx.beginPath();
@@ -48,6 +56,15 @@ class screen{
         this.game.ctx.fill();
         this.game.ctx.strokeStyle = styleProperties.boderColor;
         this.game.ctx.stroke();
+    }
 
+    drawText(SCORE){
+        this.game.ctx.font = '50px Arial';
+        this.game.ctx.textAlign = 'center';
+        this.game.ctx.lineWidth = 3;
+        this.game.ctx.strokeText(
+        SCORE,
+        SCREEN_WIDTH - 10*SCREEN_WIDTH/100,
+        SCREEN_HEIGHT - 90*SCREEN_HEIGHT/100);
     }
 }

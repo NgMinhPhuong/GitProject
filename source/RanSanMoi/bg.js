@@ -21,10 +21,10 @@ class bg{
     
         let firstLineX = GRID_SIZE - (this.game.snake.x % GRID_SIZE);
         let currentLineX = firstLineX;
-        while(currentLineX <= SCREEN_WIDTH){
+        while( currentLineX <= GAME_WIDTH - this.game.screen.left){
             this.drawLine(
                 {x: currentLineX, y: 0},
-                {x: currentLineX, y: SCREEN_HEIGHT}
+                {x: currentLineX, y:GAME_HEIGHT - this.game.screen.top}
             );
             currentLineX += GRID_SIZE;
         }
@@ -32,10 +32,10 @@ class bg{
 
         let firstLineY = GRID_SIZE - (this.game.snake.y % GRID_SIZE);
         let currentLineY = firstLineY;
-        while(currentLineY <= SCREEN_HEIGHT){
+        while( currentLineY <= GAME_HEIGHT - this.game.screen.top){
             this.drawLine(
                 {x: 0, y: currentLineY},
-                {x: SCREEN_WIDTH,  y: currentLineY}
+                {x: GAME_WIDTH - this.game.screen.left,  y: currentLineY}
             );
             currentLineY += GRID_SIZE;
         }
