@@ -13,13 +13,28 @@
   <body>
     <canvas id="canvas" width="400px" height="400px" style="border: 2px solid">
     </canvas>
-    <img style="transform: rotate(90deg);"
-      src="https://photo2.tinhte.vn/data/attachment-files/2021/07/5557920_CV.jpg"
-      id="img"
-      alt="img"
-    />
+   
     <script>
-      console.log(-9  % 2);
+      class test{
+        constructor(){
+          this.loop();
+          
+        }
+        loop(){
+          this.lop = setInterval(() => this.loop(), 1000)
+          clearInterval(this.lop)
+          console.log(345);
+          
+          
+        }
+      }
+      let a = new test()
+      
+    
+        
+   
+      
+
     </script>
   </body>
 </html>

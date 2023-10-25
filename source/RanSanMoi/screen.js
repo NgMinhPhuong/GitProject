@@ -87,23 +87,4 @@ class screen{
             SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
             SCREEN_HEIGHT - 50*SCREEN_HEIGHT/100);
     }
-
-    drawLimit(){
-        this.game.bg.drawLimitScreen(//chưa xông
-            {x: 0, y: 0},
-            {x: GAME_WIDTH, y: 0}
-        );
-        this.game.bg.drawLine(
-            {x: 0, y: GAME_HEIGHT},
-            {x: GAME_WIDTH, y: GAME_HEIGHT}
-        );
-        this.game.bg.drawLine(
-            {x: 0, y: 0},
-            {x: 0, y: GAME_HEIGHT}
-        );
-        this.game.bg.drawLine(
-            {x: 0, y: GAME_WIDTH},
-            {x: GAME_WIDTH, y: GAME_HEIGHT}
-        );
-    }
 }

@@ -40,7 +40,6 @@
     #start{
         width: 250px;
         height: 180px;
-        
         margin-top: 10px;
     }
 </style>
@@ -55,7 +54,7 @@
        <canvas id="start"></canvas>
     </div>
 </body>
-
+<script src="gameStartScreen.js"></script>
 <script src="const.js"></script>
 <script src="eys.js"></script>
 <script src="screen.js"></script>
@@ -64,9 +63,9 @@
 <script src="snake.js"></script>
 <script src="food.js"></script>
 <script src="game.js"></script>
-<script src="gameStartScreen.js"></script>
+
 <script>
-    let b = new ScreenStart();
+    
     function next(){
         b.icol++;
         if(b.icol == 9) b.icol = 0;
