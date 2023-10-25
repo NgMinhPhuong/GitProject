@@ -9,6 +9,7 @@ class score{
     }
 
     draw(){
-        this.game.screen.drawText(this.Score);
+        this.game.screen.drawName(this.game.name)
+        this.game.screen.drawScore(this.Score);
     }
 }   

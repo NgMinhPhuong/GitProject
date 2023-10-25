@@ -18,7 +18,7 @@ class screen{
         let styles = {};
         styles['snack'] = {
             boderColor: 'red',
-            color: '#F65A5A',
+            color: b.col[b.icol],
             width: 20
         }
 
@@ -33,7 +33,7 @@ class screen{
             color: 'black',
             width: 5
         }
-        
+        if(SNAKE_SPEED > SNAKE_SPEED_NOR) styles['snack'].color = 'purple'
         let col = ['red','green','blue','yellow','pink','gray','white', 'black','purple'];
         let colo = col[Math.round(Math.random() * (col.length - 1))];
         styles['food'] = {
@@ -58,13 +58,52 @@ class screen{
         this.game.ctx.stroke();
     }
 
-    drawText(SCORE){
+    drawScore(SCORE){
         this.game.ctx.font = '50px Arial';
         this.game.ctx.textAlign = 'center';
-        this.game.ctx.lineWidth = 3;
+        this.game.ctx.lineWidth = 5;
         this.game.ctx.strokeText(
         SCORE,
         SCREEN_WIDTH - 10*SCREEN_WIDTH/100,
         SCREEN_HEIGHT - 90*SCREEN_HEIGHT/100);
+    }
+
+    drawName(NAME){
+        this.game.ctx.font = '50px Arial';
+        this.game.ctx.textAlign = 'center';
+        this.game.ctx.lineWidth = 5;
+        this.game.ctx.strokeText(
+        NAME,
+        SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
+        SCREEN_HEIGHT - 90*SCREEN_HEIGHT/100);
+    }
+
+    drawGameOver(){
+        this.game.ctx.font = '50px Arial';
+        this.game.ctx.textAlign = 'center';
+        this.game.ctx.lineWidth = 5;
+        this.game.ctx.strokeText(
+            `NGU HỌC CHẠY XÍCH VÔ`,
+            SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
+            SCREEN_HEIGHT - 50*SCREEN_HEIGHT/100);
+    }
+
+    drawLimit(){
+        this.game.bg.drawLimitScreen(//chưa xông
+            {x: 0, y: 0},
+            {x: GAME_WIDTH, y: 0}
+        );
+        this.game.bg.drawLine(
+            {x: 0, y: GAME_HEIGHT},
+            {x: GAME_WIDTH, y: GAME_HEIGHT}
+        );
+        this.game.bg.drawLine(
+            {x: 0, y: 0},
+            {x: 0, y: GAME_HEIGHT}
+        );
+        this.game.bg.drawLine(
+            {x: 0, y: GAME_WIDTH},
+            {x: GAME_WIDTH, y: GAME_HEIGHT}
+        );
     }
 }

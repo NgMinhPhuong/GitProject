@@ -3,7 +3,8 @@ class snake {
         this.game = game;
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
-        this.numOfChain = 20;
+        this.numOfChain = 200;
+        this.numOfChainOld = 200;
         this.listenMouseEvent();
         this.angel = 0;
         this.eye = new eye(this);
@@ -28,9 +29,6 @@ class snake {
             SNAKE_SPEED /= 1.5;
         }
         
-            
-        
-        
     }
 
     processMouseMove(mousePos){
@@ -39,6 +37,7 @@ class snake {
             mousePos.x - (SCREEN_WIDTH / 2)
         );
     }
+
 
     createTail(){
         for(let i = 0; i < this.numOfChain; i++)
@@ -51,18 +50,22 @@ class snake {
         }
     }
 
+
     update(){
-        
+        console.log(this.x, this.y);
         let newTailPosition = {
             x: this.x + Math.cos(this.angel) * SNAKE_SPEED,
             y: this.y + Math.sin(this.angel) * SNAKE_SPEED
         }
-    
+        
+        if(this.numOfChain == this.numOfChainOld) 
         this.tailPosition.pop();
-        this.tailPosition.unshift(newTailPosition);  
+        this.numOfChainOld = this.numOfChain;
+        this.tailPosition.unshift(newTailPosition);
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
-       
+        console.log(this.tailPosition.length);
+        
     }
 
     draw(){
@@ -91,7 +94,6 @@ class snake {
             } 
         }
         //draw head 
-        this.eye.draw();
-       console.log(this.numOfChain);
+        this.eye.draw(); 
     }
 }

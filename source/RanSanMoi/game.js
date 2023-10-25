@@ -1,5 +1,8 @@
 class game {
     constructor(){
+        this.name = document.querySelector('input').value;
+        let colorSnake = b.arr
+        document.querySelector('div').remove();  
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = SCREEN_WIDTH;
@@ -16,7 +19,7 @@ class game {
     loop(){
         this.update();
         this.draw();
-        setTimeout( () => this.loop(), 30)
+        this.lop = setTimeout( () => this.loop(), 30)
     }
 
     update(){
@@ -37,17 +40,26 @@ class game {
     draw(){
         this.clearScreen();
         this.bg.draw();
+        this.screen.drawLimit();
         this.food.draw();
         this.snake.draw(); 
         this.score.draw()
-        
+        if(this.snake.x >= GAME_WIDTH || this.snake.x <= 0
+            || this.snake.y >= GAME_HEIGHT || this.snake.y <=0)
+        {    
+            this.screen.drawGameOver();
+            
+        }
         
         
         
     }
 }
+let a = document.querySelector('button');
+a.onclick = function(e){
+    let c = new game();
+}
 
-let c = new game();
 
 
 

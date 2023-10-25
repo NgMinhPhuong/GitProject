@@ -6,7 +6,7 @@ class food{
     }
 
     createFood(){
-        for(let i = 0; i < 1000; i++)
+        for(let i = 0; i < 2500; i++)
         {
             let objFood = {};
             objFood.x = Math.random() * GAME_WIDTH;
@@ -35,7 +35,7 @@ class food{
                 this.arrFood.splice(i, 1);
                 i--;
                 this.game.score.Score += 10;
-                this.game.snake.nu
+                this.game.snake.numOfChain += 3;
             }
         }
     }
