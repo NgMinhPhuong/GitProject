@@ -6,17 +6,24 @@
     <title>Document</title>
   </head>
   <style>
-    img{
-        
+    img {
+        position: relative;
+        left: -100px;
+        z-index: -1;
+        background-color: tra;
     }
+    
   </style>
   <body>
     <canvas id="canvas" width="400px" height="400px" style="border: 2px solid">
     </canvas>
-   
+
+    
     <script>
-      
-      console.log(-Math.PI);
+      let img = document.createElement('img');
+      img.src = 'https://kenh14cdn.com/LJ9BRCA2SwO2i2yoqIMzIMq9QI2QMI/Image/2015/05/cd1-358c5.gif'
+;     document.body.appendChild(img)
+    ;
     </script>
   </body>
 </html>

@@ -35,7 +35,7 @@ class SnakeAuto{
     }
 
     update(){
-        console.log(this.angel);
+        
         let newTailPosition = {
             x: this.x + Math.cos(this.angel) * SNAKE_SPEED_AUTO,
             y: this.y + Math.sin(this.angel) * SNAKE_SPEED_AUTO

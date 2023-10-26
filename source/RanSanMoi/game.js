@@ -1,15 +1,18 @@
 class game {
     constructor(){
         this.name = document.querySelector('input').value;
-        let colorSnake = b.arr
         document.querySelector('div').remove();  
         this.canvas = document.createElement('canvas');
         this.img = document.createElement('img');
-        this.img.src = 'https://png.pngtree.com/thumb_back/fw800/background/20210910/pngtree-city-night-view-high-building-image_781063.jpg'
+        this.img.src = 'https://kenh14cdn.com/LJ9BRCA2SwO2i2yoqIMzIMq9QI2QMI/Image/2015/05/cd1-358c5.gif'
+        this.img.setAttribute('class','myimg')
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = SCREEN_WIDTH;
         this.canvas.height = SCREEN_HEIGHT;
+        this.img.style.width = this.canvas.width + 'px';
+        this.img.style.height = this.canvas.height + 'px';
         document.body.appendChild(this.canvas);
+        document.body.appendChild(this.img)
         this.snake = new snake(this);
         this.food = new food(this)
         this.screen = new screen(this)
@@ -44,14 +47,13 @@ class game {
 
     
     clearScreen(){
-        this.ctx.fillStyle = '#f2f2f2';
-        this.ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-
+        // this.ctx.fillStyle =  '#f2f2f2';
+        // this.ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        this.ctx.clearRect(0, 0 , this.canvas.width, this.canvas.height)
     }
 
     draw(){
         this.clearScreen();
-        this.ctx.drawImage(this.img, 0, 0, this.canvas.width, this.canvas.height);
         this.bg.draw();
         this.food.draw();
         for(let x of this.SnakeAuto)
