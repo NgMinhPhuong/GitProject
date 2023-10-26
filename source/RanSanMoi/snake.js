@@ -3,8 +3,8 @@ class snake {
         this.game = game;
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
-        this.numOfChain = 200;
-        this.numOfChainOld = 200;
+        this.numOfChain = 30;
+        this.numOfChainOld = 30;
         this.listenMouseEvent();
         this.angel = 0;
         this.eye = new eye(this);
@@ -23,7 +23,6 @@ class snake {
         })
         window.onmousedown = function(e){
             SNAKE_SPEED *= 1.5;
-            
         } 
         window.onmouseup = function(e){
             SNAKE_SPEED /= 1.5;
@@ -52,7 +51,7 @@ class snake {
 
 
     update(){
-        console.log(this.x, this.y);
+        
         let newTailPosition = {
             x: this.x + Math.cos(this.angel) * SNAKE_SPEED,
             y: this.y + Math.sin(this.angel) * SNAKE_SPEED
@@ -64,7 +63,7 @@ class snake {
         this.tailPosition.unshift(newTailPosition);
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
-        console.log(this.tailPosition.length);
+        
         
     }
 

@@ -37,7 +37,22 @@ class food{
                 this.game.score.Score += 10;
                 this.game.snake.numOfChain += 3;
             }
+
+            else{
+                for(let x in this.game.SnakeAuto)
+                {
+                    if(Math.abs(this.arrFood[i].x - this.game.SnakeAuto[x].x) <= 20
+                    && Math.abs(this.arrFood[i].y - this.game.SnakeAuto[x].y) <= 20)
+                    {
+                        this.arrFood.splice(i, 1);
+                        i--;
+                        this.game.SnakeAuto[x].numOfChain += 3; 
+                    }
+                }
+            }
         }
+
+        
     }
 
     draw(){

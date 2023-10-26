@@ -79,11 +79,11 @@ class screen{
     }
 
     drawGameOver(){
-        this.game.ctx.font = '50px Arial';
+        this.game.ctx.font = '100px Arial';
         this.game.ctx.textAlign = 'center';
         this.game.ctx.lineWidth = 5;
         this.game.ctx.strokeText(
-            `NGU HỌC CHẠY XÍCH VÔ`,
+            `HẾT CỨU !`,
             SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
             SCREEN_HEIGHT - 50*SCREEN_HEIGHT/100);
     }

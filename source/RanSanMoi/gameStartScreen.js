@@ -26,15 +26,13 @@ class ScreenStart{
     }
 
     draw(){
+        
         for(let i = 0; i < 39; i++)
         {
-            
-            
                 this.drawCircle(
                     {x: this.arrSnake[i].x, y: this.arrSnake[i].y},
                     'snack'
-                )
-            
+                )    
         }
 
         this.drawCircle(
@@ -48,6 +46,7 @@ class ScreenStart{
     }
 
     drawCircle(pos, stylesName){
+        
         this.col = ['#F65A5A','green','blue','yellow','pink','gray','white', 'black','purple'];
         let styles = {};
         styles['snack'] = {

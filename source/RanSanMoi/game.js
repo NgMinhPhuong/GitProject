@@ -15,17 +15,26 @@ class game {
         this.screen = new screen(this)
         this.bg = new bg(this);
         this.score = new score(this);
-        this.loop();
+        this.SnakeAuto = [];
+        for(let i = 0; i < 10; i++){
+            let a = new SnakeAuto(this);
+            this.SnakeAuto.push(a);
+        }
+        this.lop = setInterval(() => {
+            this.loop();
+        },30)
     }
 
-    loop(){
-        
+    loop(){     
         this.update();
-        this.draw();
-        this.lop = setTimeout(() => this.loop(),30)
+        this.draw();      
     }
 
     update(){
+        for(let x of this.SnakeAuto)
+        {
+            x.update();
+        }
         this.snake.update();
         this.screen.update(); 
         this.score.update();
@@ -44,8 +53,11 @@ class game {
         this.clearScreen();
         this.ctx.drawImage(this.img, 0, 0, this.canvas.width, this.canvas.height);
         this.bg.draw();
-       
         this.food.draw();
+        for(let x of this.SnakeAuto)
+        {
+            x.draw();
+        }
         this.snake.draw(); 
         this.score.draw()
         if(this.snake.x >= GAME_WIDTH || this.snake.x <= 0
