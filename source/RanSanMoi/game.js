@@ -40,7 +40,9 @@ class game {
             x.update();
         }
         this.snake.update();
+        
         this.screen.update(); 
+       
         this.score.update();
         this.food.update();
         this.bg.update();
@@ -63,14 +65,14 @@ class game {
         }
         this.snake.draw(); 
         this.score.draw()
+        
         this.Energy.draw();
         if(this.snake.x >= GAME_WIDTH || this.snake.x <= 0
             || this.snake.y >= GAME_HEIGHT || this.snake.y <=0)
         {    
             this.screen.drawGameOver();
             clearInterval(this.lop);
-        }
-        
+        }        
     }
 }
 let a = document.querySelector('button');

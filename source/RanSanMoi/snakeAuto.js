@@ -46,7 +46,7 @@ class SnakeAuto{
         this.tailPosition.unshift(newTailPosition);
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
-        
+        this.eye.update();
     }
 
     draw(){

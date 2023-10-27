@@ -36,11 +36,10 @@ class food{
                 this.arrFood.splice(i, 1);
                 i--;
                 this.game.score.Score += 10;
-                this.game.snake.numOfChain += 3;
+                this.game.snake.numOfChain += 3; checkLimitSpeedUp += 3;
                 if(statusEnergy == false)
                 levelEnergy1 += 10;
             }
-
             else{
                 for(let x in this.game.SnakeAuto)
                 {

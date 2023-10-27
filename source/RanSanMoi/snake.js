@@ -1,16 +1,18 @@
+let checkLimitSpeedUp = 28;
 class snake {
     constructor(game){
         this.game = game;
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
-        this.numOfChain = 30;
-        this.numOfChainOld = 30;
+        this.numOfChain = 28;
+        this.numOfChainOld = 28;
         this.listenMouseEvent();
         this.angel = 0;
         this.eye = new eye(this);
         this.tailPosition = [];
+        this.lazer = new Lazer(this);
         this.createTail();
-       
+        
     }
 
     listenMouseEvent(){
@@ -21,10 +23,14 @@ class snake {
                 y: event.clientY - rect.top
             })
         })
-        window.onmousedown = function(e){
+        this.game.canvas.onmousedown = function(e){
+            if(checkLimitSpeedUp > 28)
             SNAKE_SPEED *= 1.5;
+            
+        
         } 
-        window.onmouseup = function(e){
+        this.game.canvas.onmouseup = function(e){
+            if(SNAKE_SPEED == SNAKE_SPEED_NOR * 1.5)
             SNAKE_SPEED /= 1.5;
         }
     }
@@ -62,8 +68,16 @@ class snake {
         this.tailPosition.unshift(newTailPosition);
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
-        
-        
+        if(SNAKE_SPEED > SNAKE_SPEED_NOR)
+        {
+            if(this.game.score.Score > 0 && this.tailPosition.length > 28 )
+            {
+                this.tailPosition.pop(); checkLimitSpeedUp -= 3; 
+                this.game.score.Score -= 10;
+            }    
+        }
+        this.eye.update();
+        this.lazer.update();
     }
 
     draw(){
@@ -92,6 +106,7 @@ class snake {
             } 
         }
         //draw head 
-        this.eye.draw(); 
+        this.eye.draw();
+        this.lazer.draw(); 
     }
 }

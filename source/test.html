@@ -31,22 +31,25 @@
     }
   </style>
   <body>
-    <button onc="test()">fds</button>
+    <button onmousedown="test()">fds</button>
     <canvas id="canvas" width="400px" height="400px" style="border: 2px solid">
     </canvas>
 
     
     <script>
-      let img = document.createElement('img');
-      img.src = 'https://kenh14cdn.com/LJ9BRCA2SwO2i2yoqIMzIMq9QI2QMI/Image/2015/05/cd1-358c5.gif'
-      document.body.appendChild(img)
-      function Convert(){
-        setTimeout( () => {
-          img.src = `https://i.ytimg.com/vi/OYUY7Ugupts/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAZpIAGrqllMACwA7W3Wf8DrlfUjg`
-          img.style.animation = `test1 5s linear forwards`;
-        }, 2050)
-        img.style.animation = `test 2s linear forwards`
-      }
+      let a = document.querySelector('canvas');
+      let b = a.getContext('2d');
+      function drawLine(startPos, endPos){
+        b.lineWidth = 4;
+        b.strokeStyle = 'red';
+        b.moveTo(startPos.x, startPos.y)
+        b.lineTo(endPos.x, endPos.y)
+        b.stroke();
+    }
+    drawLine(
+      {x: 30, y: 30},
+      {x: 60, y: 60}
+    )
     </script>
   </body>
 </html>
