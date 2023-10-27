@@ -7,5 +7,9 @@ const SCREEN_HEIGHT = 800;
 let SNAKE_SPEED = 4;
 const SNAKE_SPEED_NOR = 4;
 const SNAKE_SPEED_AUTO = 4;
+
 const GRID_SIZE = 40;
+
+let levelEnergy1 = 0, statusEnergy = false;
+
 let b = new ScreenStart();

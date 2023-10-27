@@ -1,3 +1,4 @@
+
 class food{
     constructor(game){
         this.game = game;
@@ -36,6 +37,8 @@ class food{
                 i--;
                 this.game.score.Score += 10;
                 this.game.snake.numOfChain += 3;
+                if(statusEnergy == false)
+                levelEnergy1 += 10;
             }
 
             else{
@@ -51,8 +54,6 @@ class food{
                 }
             }
         }
-
-        
     }
 
     draw(){

@@ -27,11 +27,10 @@ class snake {
         window.onmouseup = function(e){
             SNAKE_SPEED /= 1.5;
         }
-        
     }
 
     processMouseMove(mousePos){
-        this.angel = Math.atan2(
+            this.angel = Math.atan2(
             mousePos.y - (SCREEN_HEIGHT / 2),
             mousePos.x - (SCREEN_WIDTH / 2)
         );

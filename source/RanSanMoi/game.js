@@ -19,7 +19,8 @@ class game {
         this.bg = new bg(this);
         this.score = new score(this);
         this.SnakeAuto = [];
-        for(let i = 0; i < 10; i++){
+        this.Energy = new Energy(this);
+        for(let i = 0; i < 2; i++){
             let a = new SnakeAuto(this);
             this.SnakeAuto.push(a);
         }
@@ -62,6 +63,7 @@ class game {
         }
         this.snake.draw(); 
         this.score.draw()
+        this.Energy.draw();
         if(this.snake.x >= GAME_WIDTH || this.snake.x <= 0
             || this.snake.y >= GAME_HEIGHT || this.snake.y <=0)
         {    

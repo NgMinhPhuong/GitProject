@@ -30,8 +30,7 @@ class SnakeAuto{
     }
 
     processMouseMove(){
-        
-        
+          
     }
 
     update(){

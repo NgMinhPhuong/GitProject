@@ -10,11 +10,28 @@
         position: relative;
         left: -100px;
         z-index: -1;
-        background-color: tra;
+      
+     
     }
-    
+    @keyframes test{
+      from{
+        opacity: 1;
+      }
+      to{
+        opacity: 0;
+      }
+    }
+    @keyframes test1{
+      from{
+        opacity: 0;
+      }
+      to{
+        opacity: 1;
+      }
+    }
   </style>
   <body>
+    <button onc="test()">fds</button>
     <canvas id="canvas" width="400px" height="400px" style="border: 2px solid">
     </canvas>
 
@@ -22,8 +39,14 @@
     <script>
       let img = document.createElement('img');
       img.src = 'https://kenh14cdn.com/LJ9BRCA2SwO2i2yoqIMzIMq9QI2QMI/Image/2015/05/cd1-358c5.gif'
-;     document.body.appendChild(img)
-    ;
+      document.body.appendChild(img)
+      function Convert(){
+        setTimeout( () => {
+          img.src = `https://i.ytimg.com/vi/OYUY7Ugupts/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAZpIAGrqllMACwA7W3Wf8DrlfUjg`
+          img.style.animation = `test1 5s linear forwards`;
+        }, 2050)
+        img.style.animation = `test 2s linear forwards`
+      }
     </script>
   </body>
 </html>

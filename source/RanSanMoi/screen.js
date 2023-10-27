@@ -33,8 +33,9 @@ class screen{
             color: 'black',
             width: 5
         }
-        if(SNAKE_SPEED > SNAKE_SPEED_NOR) styles['snack'].color = 'purple'
+        
         let col = ['red','green','blue','yellow','pink','gray','white', 'black','purple'];
+        if(statusEnergy) styles['snack'].color = col[Math.round(Math.random() * (col.length - 1))];
         let colo = col[Math.round(Math.random() * (col.length - 1))];
         styles['food'] = {
             boderColor: 'black',
@@ -57,6 +58,8 @@ class screen{
         this.game.ctx.strokeStyle = styleProperties.boderColor;
         this.game.ctx.stroke();
     }
+
+   
 
     drawScore(SCORE){
         this.game.ctx.font = '50px Arial';
@@ -82,6 +85,7 @@ class screen{
         this.game.ctx.font = '100px Arial';
         this.game.ctx.textAlign = 'center';
         this.game.ctx.lineWidth = 5;
+        this.game.ctx.strokeStyle = 'blue'
         this.game.ctx.strokeText(
             `HẾT CỨU !`,
             SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
