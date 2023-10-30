@@ -12,6 +12,7 @@ class screen{
         this.bottom = this.game.snake.y + (SCREEN_HEIGHT / 2);
         this.left = this.game.snake.x - (SCREEN_WIDTH / 2);
         this.right = this.game.snake.x + (SCREEN_WIDTH / 2);
+       
     }
 
     drawCircle(pos, styleName){
@@ -57,34 +58,38 @@ class screen{
         this.game.ctx.fill();
         this.game.ctx.strokeStyle = styleProperties.boderColor;
         this.game.ctx.stroke();
+        this.game.ctx.closePath();
     }
 
    
 
     drawScore(SCORE){
+        this.game.ctx.beginPath();
         this.game.ctx.font = '50px Arial';
-        this.game.ctx.textAlign = 'center';
+        this.game.ctx.textAlign = 'left';
         this.game.ctx.lineWidth = 5;
         this.game.ctx.strokeText(
         SCORE,
-        SCREEN_WIDTH - 10*SCREEN_WIDTH/100,
-        SCREEN_HEIGHT - 90*SCREEN_HEIGHT/100);
+        400,
+        40);
     }
 
     drawName(NAME){
+        this.game.ctx.beginPath();
         this.game.ctx.font = '50px Arial';
-        this.game.ctx.textAlign = 'center';
-        this.game.ctx.lineWidth = 5;
+        this.game.ctx.textAlign = 'left';
+        this.game.ctx.lineWidth = 3;
         this.game.ctx.strokeText(
         NAME,
-        SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
-        SCREEN_HEIGHT - 90*SCREEN_HEIGHT/100);
+        0,
+        40);
     }
 
     drawGameOver(){
+        this.game.ctx.beginPath();
         this.game.ctx.font = '100px Arial';
         this.game.ctx.textAlign = 'center';
-        this.game.ctx.lineWidth = 5;
+        this.game.ctx.lineWidth = 3;
         this.game.ctx.strokeStyle = 'blue'
         this.game.ctx.strokeText(
             `HẾT CỨU !`,

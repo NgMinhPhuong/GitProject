@@ -1,55 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    img {
-        position: relative;
-        left: -100px;
-        z-index: -1;
-      
-     
-    }
-    @keyframes test{
-      from{
-        opacity: 1;
-      }
-      to{
-        opacity: 0;
-      }
-    }
-    @keyframes test1{
-      from{
-        opacity: 0;
-      }
-      to{
-        opacity: 1;
-      }
-    }
-  </style>
-  <body>
-    <button onmousedown="test()">fds</button>
-    <canvas id="canvas" width="400px" height="400px" style="border: 2px solid">
-    </canvas>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  canvas{
+    background-color: gray;
+    border: 2px solid black;
+  }
+</style>
+<body>
+  <canvas id="canv" width="300px" height="300px">
+    <img id="myimg" src="" alt="" />
+</canvas>
+<script>
+  let canvas = document.getElementById("canv");
+  let ctx = canvas.getContext("2d");
+  let img = document.getElementById("myimg");
+  ctx.drawImage(img, 2, 20, canvas.width, canvas.height);
 
-    
-    <script>
-      let a = document.querySelector('canvas');
-      let b = a.getContext('2d');
-      function drawLine(startPos, endPos){
-        b.lineWidth = 4;
-        b.strokeStyle = 'red';
-        b.moveTo(startPos.x, startPos.y)
-        b.lineTo(endPos.x, endPos.y)
-        b.stroke();
-    }
-    drawLine(
-      {x: 30, y: 30},
-      {x: 60, y: 60}
-    )
-    </script>
-  </body>
+
+  </script>
+
+
+
+
+
+</body>
 </html>

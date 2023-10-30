@@ -25,7 +25,7 @@ class SnakeAuto{
     }
 
     loop(){
-        this.angel = -Math.PI + Math.random() * 2 * Math.PI
+        this.angel = -Math.PI + Math.random() * 2 * Math.PI;
         setTimeout(() => this.loop(), (Math.random() * 6000) + 2000)
     }
 

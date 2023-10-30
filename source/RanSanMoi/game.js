@@ -3,16 +3,16 @@ class game {
         this.name = document.querySelector('input').value;
         document.querySelector('div').remove();  
         this.canvas = document.createElement('canvas');
-        this.img = document.createElement('img');
-        this.img.src = 'https://kenh14cdn.com/LJ9BRCA2SwO2i2yoqIMzIMq9QI2QMI/Image/2015/05/cd1-358c5.gif'
-        this.img.setAttribute('class','myimg')
+        // this.img = document.createElement('img');
+        // this.img.src = 'https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g'
+        // this.img.setAttribute('class','myimg')
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = SCREEN_WIDTH;
         this.canvas.height = SCREEN_HEIGHT;
-        this.img.style.width = this.canvas.width + 'px';
-        this.img.style.height = this.canvas.height + 'px';
+        // this.img.style.width = this.canvas.width + 'px';
+        // this.img.style.height = this.canvas.height + 'px';
         document.body.appendChild(this.canvas);
-        document.body.appendChild(this.img)
+        // document.body.appendChild(this.img)
         this.snake = new snake(this);
         this.food = new food(this)
         this.screen = new screen(this)
@@ -40,9 +40,8 @@ class game {
             x.update();
         }
         this.snake.update();
-        
         this.screen.update(); 
-       
+        
         this.score.update();
         this.food.update();
         this.bg.update();

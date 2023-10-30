@@ -12,6 +12,7 @@ class snake {
         this.tailPosition = [];
         this.lazer = new Lazer(this);
         this.createTail();
+        this.health = new Health(this)
         
     }
 
@@ -26,6 +27,7 @@ class snake {
         this.game.canvas.onmousedown = function(e){
             if(checkLimitSpeedUp > 28)
             SNAKE_SPEED *= 1.5;
+        
             
         
         } 
@@ -56,7 +58,7 @@ class snake {
 
 
     update(){
-        
+        this.health.update();
         let newTailPosition = {
             x: this.x + Math.cos(this.angel) * SNAKE_SPEED,
             y: this.y + Math.sin(this.angel) * SNAKE_SPEED
@@ -70,10 +72,15 @@ class snake {
         this.y = newTailPosition.y; 
         if(SNAKE_SPEED > SNAKE_SPEED_NOR)
         {
-            if(this.game.score.Score > 0 && this.tailPosition.length > 28 )
+            console.log('zo');
+            if(this.game.score.Score > 0)
             {
-                this.tailPosition.pop(); checkLimitSpeedUp -= 3; 
-                this.game.score.Score -= 10;
+                if(this.tailPosition.length > 28)
+                this.tailPosition.pop(); 
+                if(checkLimitSpeedUp > 28)
+                checkLimitSpeedUp -= 1; //this.numOfChain -= 3;
+                this.game.score.Score -= 1;
+                console.log(checkLimitSpeedUp);
             }    
         }
         this.eye.update();
@@ -81,6 +88,7 @@ class snake {
     }
 
     draw(){
+        
         //draw shadow
         for(let i = this.tailPosition.length - 1; i > 0 ; i--){
             
@@ -106,7 +114,13 @@ class snake {
             } 
         }
         //draw head 
+        
         this.eye.draw();
-        this.lazer.draw(); 
+        this.lazer.draw();
+       //draw health
+       this.health.drawInside();
+       this.health.drawOutSide();
+       
+
     }
 }
