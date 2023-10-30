@@ -19,14 +19,22 @@ class Lazer{
         this.lazer_e2.yStart = this.snake.eye.e2.y - this.snake.game.screen.top;
         this.lazer_e2.yEnd = this.lazer_e2.yStart;
         while(this.lazer_e1.xEnd >= 0 && this.lazer_e1.xEnd <= SCREEN_WIDTH
-            && this.lazer_e1.yEnd >= 0 && this.lazer_e1.yEnd <= SCREEN_HEIGHT)
+            && this.lazer_e1.yEnd >= 0 && this.lazer_e1.yEnd <= SCREEN_HEIGHT
+            && checkshotEnemy(
+                {x: this.lazer_e1.xEnd, y: this.lazer_e1.yEnd},
+                this.snake.game.SnakeAuto
+            ) == false)
             {
                 this.lazer_e1.xEnd = this.lazer_e1.xEnd + Math.cos(this.snake.angel)
                 this.lazer_e1.yEnd = this.lazer_e1.yEnd + Math.sin(this.snake.angel)
             }
         
         while(this.lazer_e2.xEnd >= 0 && this.lazer_e2.xEnd <= SCREEN_WIDTH
-            && this.lazer_e2.yEnd >= 0 && this.lazer_e2.yEnd <= SCREEN_HEIGHT)
+            && this.lazer_e2.yEnd >= 0 && this.lazer_e2.yEnd <= SCREEN_HEIGHT
+            && checkshotEnemy(
+                {x: this.lazer_e2.xEnd, y: this.lazer_e2.yEnd},
+                this.snake.game.SnakeAuto
+            ) == false)
             {
                 this.lazer_e2.xEnd = this.lazer_e2.xEnd + Math.cos(this.snake.angel)
                 this.lazer_e2.yEnd = this.lazer_e2.yEnd + Math.sin(this.snake.angel)
@@ -36,8 +44,10 @@ class Lazer{
 
     drawLine(startPos, endPos){
         this.snake.game.ctx.beginPath();
-        this.snake.game.ctx.shadowColor = 'blue'
-        this.snake.game.ctx.strokeStyle = 'blue'
+        
+        this.snake.game.ctx.lineCap = 'round'
+        this.snake.game.ctx.lineWidth = 4;
+        this.snake.game.ctx.strokeStyle = 'rgba(0, 0)'
         this.snake.game.ctx.moveTo(startPos.x , startPos.y)
         this.snake.game.ctx.lineTo(endPos.x, endPos.y)
         this.snake.game.ctx.stroke();

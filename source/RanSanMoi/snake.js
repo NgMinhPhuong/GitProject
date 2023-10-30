@@ -71,8 +71,7 @@ class snake {
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
         if(SNAKE_SPEED > SNAKE_SPEED_NOR)
-        {
-            console.log('zo');
+        { 
             if(this.game.score.Score > 0)
             {
                 if(this.tailPosition.length > 28)
@@ -80,7 +79,6 @@ class snake {
                 if(checkLimitSpeedUp > 28)
                 checkLimitSpeedUp -= 1; //this.numOfChain -= 3;
                 this.game.score.Score -= 1;
-                console.log(checkLimitSpeedUp);
             }    
         }
         this.eye.update();
@@ -90,7 +88,7 @@ class snake {
     draw(){
         
         //draw shadow
-        for(let i = this.tailPosition.length - 1; i > 0 ; i--){
+        for(let i = this.tailPosition.length - 1; i >= 0 ; i--){
             
                 this.game.screen.drawCircle(
                     {
@@ -102,7 +100,7 @@ class snake {
         }
     
         //draw body
-        for(let i = this.tailPosition.length - 1; i > 0 ; i--){////////////////
+        for(let i = this.tailPosition.length - 1; i >= 0 ; i--){////////////////
             if(i % 3 == 0){
                 this.game.screen.drawCircle(
                     {
@@ -116,10 +114,10 @@ class snake {
         //draw head 
         
         this.eye.draw();
+        if(statusEnergy)
         this.lazer.draw();
        //draw health
-       this.health.drawInside();
-       this.health.drawOutSide();
+       this.health.draw();
        
 
     }

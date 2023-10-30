@@ -3,9 +3,11 @@ const TWO_DISTANCE = 32
 const THREE_DISTANCE = 48
 const FOUR_DISTANCE = 50
 const LENGTH_HEALTH = 100
+
 class Health {
     constructor(snake){
         this.snake = snake;
+        this.lengthHealthInside = 90;
     }
     
     update(){
@@ -19,14 +21,14 @@ class Health {
         this.twoAngel = {
             Start: this.snake.angel - Math.PI/2,
             End: this.snake.angel - Math.PI/2 - Math.atan2(
-                LENGTH_HEALTH, TWO_DISTANCE
+                this.lengthHealthInside, TWO_DISTANCE
             )
         }
         
         this.threeAngel = {
             Start: this.snake.angel - Math.PI/2,
             End: this.snake.angel - Math.PI/2 - Math.atan2(
-                LENGTH_HEALTH, THREE_DISTANCE
+                this.lengthHealthInside, THREE_DISTANCE
             )
         }
         
@@ -54,9 +56,9 @@ class Health {
                     y: (this.snake.y - this.snake.game.screen.top) + Math.sin(this.twoAngel.Start) * TWO_DISTANCE
             },
             End: {x: (this.snake.x - this.snake.game.screen.left) + Math.cos(this.twoAngel.End) *
-                    Math.sqrt(TWO_DISTANCE*TWO_DISTANCE + LENGTH_HEALTH*LENGTH_HEALTH),
+                    Math.sqrt(TWO_DISTANCE*TWO_DISTANCE + this.lengthHealthInside*this.lengthHealthInside),
                     y: (this.snake.y - this.snake.game.screen.top) + Math.sin(this.twoAngel.End) *
-                    Math.sqrt(TWO_DISTANCE*TWO_DISTANCE + LENGTH_HEALTH*LENGTH_HEALTH)
+                    Math.sqrt(TWO_DISTANCE*TWO_DISTANCE + this.lengthHealthInside*this.lengthHealthInside)
             }
         }
        
@@ -65,9 +67,9 @@ class Health {
                 y: (this.snake.y - this.snake.game.screen.top) + Math.sin(this.threeAngel.Start) * THREE_DISTANCE
             },
             End: {x: (this.snake.x - this.snake.game.screen.left) + Math.cos(this.threeAngel.End) *
-                Math.sqrt(THREE_DISTANCE*THREE_DISTANCE + LENGTH_HEALTH*LENGTH_HEALTH),
+                Math.sqrt(THREE_DISTANCE*THREE_DISTANCE + this.lengthHealthInside*this.lengthHealthInside),
                 y: (this.snake.y - this.snake.game.screen.top) + Math.sin(this.threeAngel.End) *
-                Math.sqrt(THREE_DISTANCE*THREE_DISTANCE + LENGTH_HEALTH*LENGTH_HEALTH)
+                Math.sqrt(THREE_DISTANCE*THREE_DISTANCE + this.lengthHealthInside*this.lengthHealthInside)
 
             }
         }
@@ -111,6 +113,7 @@ class Health {
     }
 
     draw(){
-
+        this.drawInside();
+        this.drawOutSide();
     }
 }

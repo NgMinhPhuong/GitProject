@@ -9,6 +9,8 @@ class SnakeAuto{
         this.eye = new eye(this);
         this.tailPosition = [];
         this.createTail();
+        this.lazer = new Lazer(this)
+        this.health = new Health(this)
         this.loop();
         
     }
@@ -34,7 +36,7 @@ class SnakeAuto{
     }
 
     update(){
-        
+        this.health.update();
         let newTailPosition = {
             x: this.x + Math.cos(this.angel) * SNAKE_SPEED_AUTO,
             y: this.y + Math.sin(this.angel) * SNAKE_SPEED_AUTO
@@ -47,11 +49,12 @@ class SnakeAuto{
         this.x = newTailPosition.x;
         this.y = newTailPosition.y; 
         this.eye.update();
+        this.lazer.update();
     }
 
     draw(){
         //draw shadow
-        for(let i = this.tailPosition.length - 1; i > 0 ; i--){
+        for(let i = this.tailPosition.length - 1; i >= 0 ; i--){
             
             this.game.screen.drawCircle(
                 {
@@ -63,7 +66,7 @@ class SnakeAuto{
     }
 
     //draw body
-    for(let i = this.tailPosition.length - 1; i > 0 ; i--){////////////////
+    for(let i = this.tailPosition.length - 1; i >= 0 ; i--){////////////////
         if(i % 3 == 0){
             this.game.screen.drawCircle(
                 {
@@ -76,5 +79,7 @@ class SnakeAuto{
     }
     //draw head 
     this.eye.draw();
+    this.lazer.draw();
+    this.health.draw()
     }
 }

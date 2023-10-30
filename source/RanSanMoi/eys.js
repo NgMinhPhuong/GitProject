@@ -1,5 +1,5 @@
-const EYE_DISTANCE = 10 ;
-const EYE_ANGLE = 1.3;
+const EYE_DISTANCE = 20 ;
+const EYE_ANGLE = 0.8;
 class eye{
     constructor(snake){
         this.snake = snake;
@@ -24,7 +24,7 @@ class eye{
         this.snake.game.screen.drawCircle(this.e1, 'eye');
 
        
-       this.snake.game.screen.drawCircle(this.e2, 'eye')
+        this.snake.game.screen.drawCircle(this.e2, 'eye')
     }
     
 }

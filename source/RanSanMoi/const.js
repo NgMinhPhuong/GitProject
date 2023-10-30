@@ -10,6 +10,20 @@ const SNAKE_SPEED_AUTO = 4;
 
 const GRID_SIZE = 40;
 
-let levelEnergy1 = 0, statusEnergy = false;
+
 
 let b = new ScreenStart();
+function checkshotEnemy(Pos, arrSnakeAuto){
+    for(let xx in arrSnakeAuto)
+    {
+        for(let xxx of arrSnakeAuto[xx].tailPosition)
+        {
+            if(Math.abs(xxx.x - Pos.x) <= 20 && Math.abs(xxx.y - Pos.y <=20))
+            {
+                //arrSnakeAuto[xx].health.lengthHealthInside -= 1;
+                return true;
+            }
+        }
+    }
+    return false;
+}

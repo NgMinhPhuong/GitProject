@@ -3,16 +3,16 @@ class game {
         this.name = document.querySelector('input').value;
         document.querySelector('div').remove();  
         this.canvas = document.createElement('canvas');
-        // this.img = document.createElement('img');
-        // this.img.src = 'https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g'
-        // this.img.setAttribute('class','myimg')
+        //this.img = document.createElement('img');
+        //this.img.src = 'https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g'
+        //this.img.setAttribute('class','myimg')
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = SCREEN_WIDTH;
         this.canvas.height = SCREEN_HEIGHT;
-        // this.img.style.width = this.canvas.width + 'px';
-        // this.img.style.height = this.canvas.height + 'px';
+        //this.img.style.width = this.canvas.width + 'px';
+        //this.img.style.height = this.canvas.height + 'px';
         document.body.appendChild(this.canvas);
-        // document.body.appendChild(this.img)
+        //document.body.appendChild(this.img)
         this.snake = new snake(this);
         this.food = new food(this)
         this.screen = new screen(this)
@@ -20,7 +20,7 @@ class game {
         this.score = new score(this);
         this.SnakeAuto = [];
         this.Energy = new Energy(this);
-        for(let i = 0; i < 2; i++){
+        for(let i = 0; i < 10; i++){
             let a = new SnakeAuto(this);
             this.SnakeAuto.push(a);
         }
