@@ -12,7 +12,7 @@ class game {
         this.img.style.width = this.canvas.width + 'px';//
         this.img.style.height = this.canvas.height + 'px';//
         this.h2 = document.createElement('h2')
-        this.h2.innerText = 'Every kill is ten thousand point\nPress "S" when the Energy is Full\nNhớ tắt CapsLock'
+        this.h2.innerText = 'Every kill is ten thousand point\nPress "S" when the Energy is Full'
         document.body.appendChild(this.canvas);
         document.body.appendChild(this.img)//
         document.body.appendChild(this.h2)

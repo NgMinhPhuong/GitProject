@@ -13,7 +13,7 @@ class Energy{
     listenEvent(){
         window.onkeyup = function(e){
             
-            if(e.key == "s" && levelEnergy1 == 100)
+            if((e.key == "s" || e.key == 'S') && levelEnergy1 == 100)
             {   // chuyển backgound
                 let im = document.querySelector('img');
                 setTimeout( () => {
