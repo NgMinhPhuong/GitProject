@@ -36,7 +36,7 @@ class screen{
         }
         
         let col = ['red','green','blue','yellow','pink','gray','white', 'black','purple'];
-        if(statusEnergy) styles['snack'].color = col[Math.round(Math.random() * (col.length - 1))];
+        if(statusEnergy && this.) styles['snack'].color = col[Math.round(Math.random() * (col.length - 1))];
         let colo = col[Math.round(Math.random() * (col.length - 1))];
         styles['food'] = {
             boderColor: 'black',
@@ -96,4 +96,17 @@ class screen{
             SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
             SCREEN_HEIGHT - 50*SCREEN_HEIGHT/100);
     }
+
+    drawWin(){
+        this.game.ctx.beginPath();
+        this.game.ctx.font = '100px Arial';
+        this.game.ctx.textAlign = 'center';
+        this.game.ctx.lineWidth = 3;
+        this.game.ctx.strokeStyle = 'blue'
+        this.game.ctx.strokeText(
+            `YOU ARE THE BEST`,
+            SCREEN_WIDTH - 50*SCREEN_WIDTH/100,
+            SCREEN_HEIGHT - 50*SCREEN_HEIGHT/100);
+    } 
+    
 }

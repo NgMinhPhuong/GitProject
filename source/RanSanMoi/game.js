@@ -20,7 +20,7 @@ class game {
         this.score = new score(this);
         this.SnakeAuto = [];
         this.Energy = new Energy(this);
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < 1; i++){
             let a = new SnakeAuto(this);
             this.SnakeAuto.push(a);
         }
@@ -35,13 +35,18 @@ class game {
     }
 
     update(){
-        for(let x of this.SnakeAuto)
+        
+        for(let x in this.SnakeAuto)
         {
-            x.update();
+            if(this.SnakeAuto[x].health.lengthHealthInside <= 0)
+            {
+                this.SnakeAuto.splice(x, 1)
+                this.score.Score += 10000
+            }
+            this.SnakeAuto[x].update();
         }
         this.snake.update();
-        this.screen.update(); 
-        
+        this.screen.update();    
         this.score.update();
         this.food.update();
         this.bg.update();
@@ -67,11 +72,16 @@ class game {
         
         this.Energy.draw();
         if(this.snake.x >= GAME_WIDTH || this.snake.x <= 0
-            || this.snake.y >= GAME_HEIGHT || this.snake.y <=0)
+            || this.snake.y >= GAME_HEIGHT || this.snake.y <=0 || this.snake.health.lengthHealthInside <= 0)
         {    
             this.screen.drawGameOver();
             clearInterval(this.lop);
-        }        
+        }      
+        if(this.SnakeAuto.length == 0)
+        {
+            this.screen.drawWin();
+            clearInterval(this.lop);
+        }  
     }
 }
 let a = document.querySelector('button');

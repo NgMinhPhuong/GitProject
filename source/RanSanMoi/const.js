@@ -13,17 +13,32 @@ const GRID_SIZE = 40;
 
 
 let b = new ScreenStart();
+
 function checkshotEnemy(Pos, arrSnakeAuto){
+  
     for(let xx in arrSnakeAuto)
     {
         for(let xxx of arrSnakeAuto[xx].tailPosition)
-        {
-            if(Math.abs(xxx.x - Pos.x) <= 20 && Math.abs(xxx.y - Pos.y <=20))
+        {     
+            if(Math.abs(xxx.x - Pos.x) <= 20 && Math.abs(xxx.y - Pos.y) <=20)
             {
-                //arrSnakeAuto[xx].health.lengthHealthInside -= 1;
+                arrSnakeAuto[xx].health.lengthHealthInside -= 0.1;
                 return true;
-            }
+            }          
         }
     }
     return false;
+}
+
+function checkHitByEnemy(Pos, mySnack){
+    for(let xx of mySnack.tailPosition)
+    {
+        if(Math.abs(Pos.x - xx.x) <= 20 && Math.abs(Pos.y - xx.y) <= 20)
+        {
+            mySnack.health.lengthHealthInside -= 0.1
+            return true;
+        }
+    }
+    return false;
+    
 }

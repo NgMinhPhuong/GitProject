@@ -20,24 +20,48 @@ class Lazer{
         this.lazer_e2.yEnd = this.lazer_e2.yStart;
         while(this.lazer_e1.xEnd >= 0 && this.lazer_e1.xEnd <= SCREEN_WIDTH
             && this.lazer_e1.yEnd >= 0 && this.lazer_e1.yEnd <= SCREEN_HEIGHT
-            && checkshotEnemy(
-                {x: this.lazer_e1.xEnd, y: this.lazer_e1.yEnd},
-                this.snake.game.SnakeAuto
-            ) == false)
+            )
             {
-                this.lazer_e1.xEnd = this.lazer_e1.xEnd + Math.cos(this.snake.angel)
-                this.lazer_e1.yEnd = this.lazer_e1.yEnd + Math.sin(this.snake.angel)
+                if(this.snake.name == 'mysnack')
+                {
+                    if(checkshotEnemy(
+                        {x: this.lazer_e1.xEnd + this.snake.game.screen.left, y: this.lazer_e1.yEnd + this.snake.game.screen.top},
+                        this.snake.game.SnakeAuto
+                    ) == true) break;
+                    
+                    this.lazer_e1.xEnd = this.lazer_e1.xEnd + Math.cos(this.snake.angel)
+                    this.lazer_e1.yEnd = this.lazer_e1.yEnd + Math.sin(this.snake.angel)
+                }else{
+                    if(checkHitByEnemy(
+                        {x: this.lazer_e1.xEnd + this.snake.game.screen.left, y: this.lazer_e1.yEnd + this.snake.game.screen.top},
+                        this.snake.game.snake
+                    ) == true) break;
+                    this.lazer_e1.xEnd = this.lazer_e1.xEnd + Math.cos(this.snake.angel)
+                    this.lazer_e1.yEnd = this.lazer_e1.yEnd + Math.sin(this.snake.angel)
+                }
             }
         
         while(this.lazer_e2.xEnd >= 0 && this.lazer_e2.xEnd <= SCREEN_WIDTH
             && this.lazer_e2.yEnd >= 0 && this.lazer_e2.yEnd <= SCREEN_HEIGHT
-            && checkshotEnemy(
-                {x: this.lazer_e2.xEnd, y: this.lazer_e2.yEnd},
-                this.snake.game.SnakeAuto
-            ) == false)
+            )
             {
-                this.lazer_e2.xEnd = this.lazer_e2.xEnd + Math.cos(this.snake.angel)
-                this.lazer_e2.yEnd = this.lazer_e2.yEnd + Math.sin(this.snake.angel)
+                if(this.snake.name == 'mysnack')
+                {
+                    if(checkshotEnemy(
+                        {x: this.lazer_e2.xEnd + this.snake.game.screen.left, y: this.lazer_e2.yEnd + this.snake.game.screen.top},
+                        this.snake.game.SnakeAuto
+                    ) == true) break;
+                    this.lazer_e2.xEnd = this.lazer_e2.xEnd + Math.cos(this.snake.angel)
+                    this.lazer_e2.yEnd = this.lazer_e2.yEnd + Math.sin(this.snake.angel)
+                }else
+                {
+                    if(checkHitByEnemy(
+                        {x: this.lazer_e2.xEnd + this.snake.game.screen.left, y: this.lazer_e2.yEnd + this.snake.game.screen.top},
+                        this.snake.game.snake
+                    ) == true) break;
+                    this.lazer_e2.xEnd = this.lazer_e2.xEnd + Math.cos(this.snake.angel)
+                    this.lazer_e2.yEnd = this.lazer_e2.yEnd + Math.sin(this.snake.angel)
+                }
             }
           
     }

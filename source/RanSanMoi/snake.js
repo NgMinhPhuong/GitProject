@@ -2,6 +2,7 @@ let checkLimitSpeedUp = 28;
 class snake {
     constructor(game){
         this.game = game;
+        this.name = 'mysnack';
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
         this.numOfChain = 28;
@@ -82,6 +83,7 @@ class snake {
             }    
         }
         this.eye.update();
+        if(statusEnergy)
         this.lazer.update();
     }
 

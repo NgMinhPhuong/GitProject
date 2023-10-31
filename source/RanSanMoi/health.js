@@ -7,7 +7,7 @@ const LENGTH_HEALTH = 100
 class Health {
     constructor(snake){
         this.snake = snake;
-        this.lengthHealthInside = 90;
+        this.lengthHealthInside = 100;
     }
     
     update(){

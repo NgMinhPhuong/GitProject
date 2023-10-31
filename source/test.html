@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hiệu ứng cuối nét vẽ dường thẳng trong canvas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<style>
-  canvas{
-    background-color: rgb(0, 30, 255);
-  }
-</style>
 <body>
-    <canvas id="myCanvas" width="400px" height="400px"></canvas>
-
+    <button class="playstop" onclick="test()">stop/play</button>
+    <button class="reset"> reset</button>
     <script>
-        // Lấy đối tượng canvas
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
+         let audio = new Audio('./BoomOnline-V.A-3697589.mp3')
+        let check = false;
+        setInterval(() => {
+            if(check == 2)
+            {   audio.pause();
+                audio.currentTime = 0;
+                audio.play();
+               
+            }
+           else if(check == true)
+            audio.play();
+        else audio.pause()
+        }, 1);
+       
+        let btn = document.querySelector('.playstop')
+        btn.onclick = function(e){
+            if(check == 2) check = true;
+            else
+            check = !check
+        }
+        document.querySelector('.reset').onclick=function(e){
+            check = 2;
+        }
 
-        // Vẽ đường thẳng
-        ctx.beginPath();
-        ctx.moveTo(50, 50);
-        ctx.lineTo(350, 50);
-
-        // Tạo gradient từ điểm bắt đầu đến điểm kết thúc
-        var gradient = ctx.createLinearGradient(50, 50, 350, 50);
-        gradient.addColorStop(0, "blue"); // Màu sắc ban đầu
-        gradient.addColorStop(1, "transparent"); // Màu trong suốt cuối nét
-
-        // Cài đặt gradient làm màu của đường vẽ
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 5;
-        ctx.lineCap = "round"; // Đầu nét làm tròn
-
-        // Vẽ đường thẳng với hiệu ứng cuối nét
-        ctx.stroke();
+            
     </script>
 </body>
 </html>

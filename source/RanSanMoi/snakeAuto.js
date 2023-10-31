@@ -1,6 +1,7 @@
 class SnakeAuto{
     constructor(game){
         this.game = game;
+        this.name = 'bot';
         this.x = GAME_WIDTH / 2;
         this.y = GAME_HEIGHT / 2;
         this.numOfChain = 30;
