@@ -36,7 +36,7 @@ class screen{
         }
         
         let col = ['red','green','blue','yellow','pink','gray','white', 'black','purple'];
-        if(statusEnergy && this.) styles['snack'].color = col[Math.round(Math.random() * (col.length - 1))];
+        if(statusEnergy) styles['snack'].color = col[Math.round(Math.random() * (col.length - 1))];
         let colo = col[Math.round(Math.random() * (col.length - 1))];
         styles['food'] = {
             boderColor: 'black',

@@ -3,16 +3,19 @@ class game {
         this.name = document.querySelector('input').value;
         document.querySelector('div').remove();  
         this.canvas = document.createElement('canvas');
-        //this.img = document.createElement('img');
-        //this.img.src = 'https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g'
-        //this.img.setAttribute('class','myimg')
+        this.img = document.createElement('img');//
+        this.img.src = 'https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g'
+        this.img.setAttribute('class','myimg')//
         this.ctx = this.canvas.getContext('2d');
         this.canvas.width = SCREEN_WIDTH;
         this.canvas.height = SCREEN_HEIGHT;
-        //this.img.style.width = this.canvas.width + 'px';
-        //this.img.style.height = this.canvas.height + 'px';
+        this.img.style.width = this.canvas.width + 'px';//
+        this.img.style.height = this.canvas.height + 'px';//
+        this.h2 = document.createElement('h2')
+        this.h2.innerText = 'Every kill is ten thousand point\nPress "S" when the Energy is Full\nNhớ tắt CapsLock'
         document.body.appendChild(this.canvas);
-        //document.body.appendChild(this.img)
+        document.body.appendChild(this.img)//
+        document.body.appendChild(this.h2)
         this.snake = new snake(this);
         this.food = new food(this)
         this.screen = new screen(this)
@@ -24,6 +27,8 @@ class game {
             let a = new SnakeAuto(this);
             this.SnakeAuto.push(a);
         }
+        this.sound = new Audio('../BoomOnline-V.A-3697589.mp3')
+        this.sound.play();
         this.lop = setInterval(() => {
             this.loop();
         },30)
@@ -33,6 +38,7 @@ class game {
         this.update();
         this.draw();      
     }
+
 
     update(){
         
@@ -76,11 +82,13 @@ class game {
         {    
             this.screen.drawGameOver();
             clearInterval(this.lop);
+            this.sound.pause();
         }      
         if(this.SnakeAuto.length == 0)
         {
             this.screen.drawWin();
             clearInterval(this.lop);
+            this.sound.pause();
         }  
     }
 }

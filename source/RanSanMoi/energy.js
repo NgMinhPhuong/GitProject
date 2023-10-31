@@ -15,12 +15,13 @@ class Energy{
             
             if(e.key == "s" && levelEnergy1 == 100)
             {   // chuyển backgound
-                //let im = document.querySelector('img');
-                // setTimeout( () => {
-                //     im.src = `https://media3.giphy.com/media/FZzbTJyRTwPuw/giphy.gif?cid=ecf05e47sfr98gs2wq67exdhys0fey0vfsxdp0wcqyzr2tur&ep=v1_gifs_search&rid=giphy.gif&ct=g`
-                //     im.style.animation = `test1 1s linear forwards`
-                // },1050)
-                //im.style.animation = `test 1s linear forwards`     
+                let im = document.querySelector('img');
+                setTimeout( () => {
+                    im.src = `https://media3.giphy.com/media/FZzbTJyRTwPuw/giphy.gif?cid=ecf05e47sfr98gs2wq67exdhys0fey0vfsxdp0wcqyzr2tur&ep=v1_gifs_search&rid=giphy.gif&ct=g`
+                    im.style.animation = `test1 1s linear forwards`
+                },1050)
+                im.style.animation = `test 1s linear forwards`
+                //     
                 statusEnergy = true;
                
                 setTimeout( () => {
@@ -29,13 +30,14 @@ class Energy{
                 let interv = setInterval(() => {
                     levelEnergy1--;
                     if(levelEnergy1 == 0)
-                    {
-                        //let im = document.querySelector('img');
-                        // setTimeout( () => {
-                        //     im.src = `https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g`
-                        //     im.style.animation = `test1 1s linear forwards`
-                        // },1050)
-                        //im.style.animation = `test 1s linear forwards`
+                    {//
+                        let im = document.querySelector('img');
+                        setTimeout( () => {
+                            im.src = `https://media4.giphy.com/media/UvQBDoaSOsfdGpJnGF/giphy.gif?cid=ecf05e47bpkkm4je7df6jhjpfi3uivhp1csq302ag5t06j6l&ep=v1_gifs_related&rid=giphy.gif&ct=g`
+                            im.style.animation = `test1 1s linear forwards`
+                        },1050)
+                        im.style.animation = `test 1s linear forwards`
+                     //
                         clearInterval(interv);
                     }
                 }, 100);
@@ -62,6 +64,6 @@ class Energy{
             this.game.ctx.fillStyle = 'purple';
         }
         this.game.ctx.fillRect(SCREEN_WIDTH - 180 + 5, 25, 170 * levelEnergy1 / 100, 20);
-
+        
     }
 }
